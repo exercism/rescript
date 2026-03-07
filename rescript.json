@@ -11,5 +11,5 @@
     }
   ],
   "suffix": ".res.js",
-  "dependencies": ["rescript-test"]
+  "dev-dependencies": ["rescript-test"]
 }
