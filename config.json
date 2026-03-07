@@ -19,11 +19,21 @@
     "average_run_time": 7
   },
   "files": {
-    "solution": ["src/%{pascal_slug}.re"],
-    "test": ["__tests__/%{pascal_slug}_test.re"],
-    "example": ["src/Example.re"],
-    "exemplar": [".meta/src/Exemplar.re"],
-    "editor": ["src/%{pascal_slug}.rei"]
+    "solution": [
+      "src/%{pascal_slug}.res"
+    ],
+    "test": [
+      "tests/%{pascal_slug}_test.res"
+    ],
+    "example": [
+      ".meta/%{pascal_slug}.res"
+    ],
+    "exemplar": [
+      ".meta/src/%{pascal_slug}.res"
+    ],
+    "editor": [
+      "src/%{pascal_slug}.resi"
+    ]
   },
   "exercises": {
     "practice": [
@@ -33,8 +43,7 @@
         "uuid": "63d72b81-c7a4-4a94-8224-69f4c68cc374",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 1,
-        "topics": ["setting_up_reasonml_dev_environment", "strings"]
+        "difficulty": 1
       }
     ]
   },
@@ -46,7 +55,7 @@
     },
     {
       "title": "Inferred types",
-      "content": "No need to specify types, types are inferred by ReScript compiler and are guaranteed to be correct.",
+      "content": "Types are inferred by the ReScript compiler and are guaranteed to be correct.",
       "icon": "immutable"
     },
     {
@@ -55,8 +64,8 @@
       "icon": "functional"
     },
     {
-      "title": "Easy javascript interop",
-      "content": "Javascript interop is easy allowing advatange of existing javascript packages and ecosystem.",
+      "title": "Easy JavaScript interoperability",
+      "content": "JavaScript interoperability is easy, allowing existing JavaScript packages to be used.",
       "icon": "interop"
     },
     {
