@@ -1,5 +1,4 @@
 {
-  "track_id": "rescript",
   "language": "ReScript",
   "slug": "rescript",
   "active": true,
@@ -17,7 +16,7 @@
     "highlightjs_language": "reasonml"
   },
   "test_runner": {
-    "average_run_time": 7.0
+    "average_run_time": 7
   },
   "files": {
     "solution": [
@@ -37,7 +36,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -53,48 +51,47 @@
       }
     ]
   },
-  "concepts": [],
   "key_features": [
     {
-      "icon": "stable",
       "title": "OCaml's type system",
-      "content": "ReScript brings OCaml's battle-tested powerful type system to Javascript."
+      "content": "ReScript brings OCaml's battle-tested powerful type system to Javascript.",
+      "icon": "stable"
     },
     {
-      "icon": "immutable",
       "title": "Inferred types",
-      "content": "No need to specify types, types are inferred by ReScript compiler and are guaranteed to be correct."
+      "content": "No need to specify types, types are inferred by ReScript compiler and are guaranteed to be correct.",
+      "icon": "immutable"
     },
     {
-      "icon": "functional",
       "title": "Functional Programming",
-      "content": "Like OCaml, ReScript is a functional programming language with pattern matching, variants and more."
+      "content": "Like OCaml, ReScript is a functional programming language with pattern matching, variants and more.",
+      "icon": "functional"
     },
     {
-      "icon": "interop",
       "title": "Easy javascript interop",
-      "content": "Javascript interop is easy allowing advatange of existing javascript packages and ecosystem."
+      "content": "Javascript interop is easy allowing advatange of existing javascript packages and ecosystem.",
+      "icon": "interop"
     },
     {
-      "icon": "fast",
       "title": "Fast compiler",
-      "content": "ReScript compilation times are super fast which means fast iteration cycles."
+      "content": "ReScript compilation times are super fast which means fast iteration cycles.",
+      "icon": "fast"
     },
     {
-      "icon": "fun",
       "title": "Refactor with ease",
-      "content": "Compiler guides you through all places that need to be fixed during refactor until it just works."
+      "content": "Compiler guides you through all places that need to be fixed during refactor until it just works.",
+      "icon": "fun"
     }
   ],
   "tags": [
-    "paradigm/functional",
-    "typing/static",
-    "typing/strong",
     "execution_mode/compiled",
+    "paradigm/functional",
     "platform/linux",
     "platform/mac",
-    "platform/windows",
     "platform/web",
+    "platform/windows",
+    "typing/static",
+    "typing/strong",
     "used_for/frontends",
     "used_for/web_development"
   ]
