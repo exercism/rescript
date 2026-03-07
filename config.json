@@ -19,21 +19,11 @@
     "average_run_time": 7
   },
   "files": {
-    "solution": [
-      "src/%{pascal_slug}.res"
-    ],
-    "test": [
-      "tests/%{pascal_slug}_test.res"
-    ],
-    "example": [
-      ".meta/%{pascal_slug}.res"
-    ],
-    "exemplar": [
-      ".meta/src/%{pascal_slug}.res"
-    ],
-    "editor": [
-      "src/%{pascal_slug}.resi"
-    ]
+    "solution": ["src/%{pascal_slug}.res"],
+    "test": ["tests/%{pascal_slug}_test.res"],
+    "example": [".meta/%{pascal_slug}.res"],
+    "exemplar": [".meta/src/%{pascal_slug}.res"],
+    "editor": ["src/%{pascal_slug}.resi"]
   },
   "exercises": {
     "practice": [
@@ -64,7 +54,7 @@
       "icon": "functional"
     },
     {
-      "title": "Easy JavaScript interoperability",
+      "title": "JavaScript interop",
       "content": "JavaScript interoperability is easy, allowing existing JavaScript packages to be used.",
       "icon": "interop"
     },
