@@ -33,9 +33,6 @@
     ],
     "editor": [
       "src/%{pascal_slug}.rei"
-    ],
-    "config": [
-      "rescript.json"
     ]
   },
   "exercises": {
