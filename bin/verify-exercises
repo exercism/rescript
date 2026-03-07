@@ -42,7 +42,6 @@ unskip_tests() {
 }
 
 run_tests() {
-    npm i
     ./node_modules/.bin/rescript build
     ./node_modules/.bin/retest tests/*.res.js
 }
