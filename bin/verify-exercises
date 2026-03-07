@@ -42,14 +42,17 @@ unskip_tests() {
 }
 
 run_tests() {
-    npm run ci
+    node_modules/.bin/rescript
+    node_modules/.bin/retest tests/*.js
 }
 
 verify_exercise() {
     local dir
     local slug
     local tmp_dir
+    local root_dir
 
+    root_dir=$(realpath .)   # capture project root before cd-ing away
     dir=$(realpath "${1}")
     slug=$(basename "${dir}")
     tmp_dir=$(mktemp -d -t "exercism-verify-${slug}-XXXXX")
@@ -57,9 +60,11 @@ verify_exercise() {
     echo "Verifying ${slug} exercise..."
 
     (
-        trap 'rm -rf "$tmp_dir"' EXIT    # remove tempdir when subshell ends
+        trap 'rm -rf "$tmp_dir"' EXIT
         cp -r "${dir}/." "${tmp_dir}"
         cd "${tmp_dir}"
+
+        ln -s "${root_dir}/node_modules" "${tmp_dir}/node_modules"
 
         copy_example_or_examplar_to_solution
         #unskip_tests
