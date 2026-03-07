@@ -1,8 +1,8 @@
 {
   "name": "@exercism/rescript",
   "sources": [
-    { "dir": "tmp/src", "subdirs": true, "type": "dev" },
-    { "dir": "tmp/tests", "subdirs": true, "type": "dev" }
+    { "dir": "src", "subdirs": true, "type": "dev" },
+    { "dir": "tests", "subdirs": true, "type": "dev" }
   ],
   "package-specs": [
     {
