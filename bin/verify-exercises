@@ -42,8 +42,7 @@ unskip_tests() {
 }
 
 run_tests() {
-    ./node_modules/.bin/rescript build
-    ./node_modules/.bin/retest tests/*.res.js
+    npm run ci
 }
 
 verify_exercise() {
