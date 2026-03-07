@@ -1,7 +1,7 @@
 {
   "language": "ReScript",
   "slug": "rescript",
-  "active": true,
+  "active": false,
   "status": {
     "concept_exercises": false,
     "test_runner": false,
@@ -19,21 +19,11 @@
     "average_run_time": 7
   },
   "files": {
-    "solution": [
-      "src/%{pascal_slug}.re"
-    ],
-    "test": [
-      "__tests__/%{pascal_slug}_test.re"
-    ],
-    "example": [
-      "src/Example.re"
-    ],
-    "exemplar": [
-      ".meta/src/Exemplar.re"
-    ],
-    "editor": [
-      "src/%{pascal_slug}.rei"
-    ]
+    "solution": ["src/%{pascal_slug}.re"],
+    "test": ["__tests__/%{pascal_slug}_test.re"],
+    "example": ["src/Example.re"],
+    "exemplar": [".meta/src/Exemplar.re"],
+    "editor": ["src/%{pascal_slug}.rei"]
   },
   "exercises": {
     "practice": [
@@ -44,10 +34,7 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1,
-        "topics": [
-          "setting_up_reasonml_dev_environment",
-          "strings"
-        ]
+        "topics": ["setting_up_reasonml_dev_environment", "strings"]
       }
     ]
   },
