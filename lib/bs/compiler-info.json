@@ -1,0 +1,8 @@
+{
+  "version": "12.2.0",
+  "bsc_path": "/home/owen/Desktop/rescript/node_modules/@rescript/linux-x64/bin/bsc.exe",
+  "bsc_hash": "ca03c46847ff55e2a2115049975f546b655fceff6fc10e34645da2e812314070",
+  "rescript_config_hash": "3e1cc7045fb017ccc60b5b5d3292d68791734f3c2ec12676027af056bbacdc32",
+  "runtime_path": "/home/owen/Desktop/rescript/node_modules/@rescript/runtime",
+  "generated_at": "1772880784624"
+}
