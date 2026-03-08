@@ -4,6 +4,6 @@ export const slug = 'hello-world';
 
 export const assertionFunctions = [ stringEqual ]
 
-export const template = (c, moduleName) => {
+export const template = (c) => {
   return `stringEqual(~message="${c.description}", hello(), "${c.expected}")`
 }

@@ -5,19 +5,17 @@ import { template, assertionFunctions } from '../exercises/practice/hello-world/
 export const toPascalCase = (slug) => 
   slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
 
-export const generate = (outputPath, slug, cases, config) => {
+export const generate = (outputPath, slug, cases) => {
   const moduleName = toPascalCase(slug);
   
   let output = `open Test
 open ${moduleName}\n\n`;
 
-  assertionFunctions.forEach(fn => {
-    output += `${fn}\n\n`
-  })
+  assertionFunctions.forEach(fn => output += `${fn}\n\n`)
 
   cases.forEach((c) => {
     output += `test("${c.description}", () => {
-  ${template(c, moduleName)}
+  ${template(c)}
 })`
   });
 
