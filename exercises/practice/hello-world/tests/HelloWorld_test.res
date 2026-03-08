@@ -8,3 +8,4 @@ let stringEqual = (~message=?, a: string, b: string) =>
 test("Say Hi!", () => {
   stringEqual(~message="Say Hi!", HelloWorld.hello(), "Hello, World!")
 })
+

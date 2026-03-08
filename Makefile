@@ -50,6 +50,24 @@ format:
 	@echo "Formatting ReScript files..."
 	@find . -name "node_modules" -prune -o -name "*.res" -print -o -name "*.resi" -print | xargs npx rescript format
 
+generate-tests:
+	@echo "Generating tests for all exercises..."
+	@for exercise in $(EXERCISES); do \
+		if [ -f exercises/practice/$$exercise/.meta/generateTests.js ]; then \
+			echo "-> Generating: $$exercise"; \
+			node exercises/practice/$$exercise/.meta/generateTests.js || exit 1; \
+		else \
+			echo "-> Skipping: $$exercise (no generator found)"; \
+		fi \
+	done
+	@echo "All tests generated successfully."
+
+generate-test:
+ifeq ($(EXERCISE),"")
+	$(error EXERCISE variable is required. usage: make generate_test EXERCISE=hello-world)
+endif
+	@node exercises/practice/$(EXERCISE)/.meta/generateTests.js
+
 test:
 	$(MAKE) -s clean
 	$(MAKE) -s check-package-files
