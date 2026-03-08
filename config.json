@@ -50,7 +50,7 @@
   "key_features": [
     {
       "title": "OCaml's type system",
-      "content": "ReScript brings OCaml's battle-tested powerful type system to Javascript.",
+      "content": "ReScript brings OCaml's battle-tested powerful type system to JavaScript.",
       "icon": "stable"
     },
     {
