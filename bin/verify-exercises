@@ -60,7 +60,7 @@ verify_exercise() {
         ln -s "${root_dir}/node_modules" "${tmp_dir}/node_modules"
 
         copy_example_or_exemplar_to_solution
-        unskip_tests
+        # unskip_tests
         run_tests
     )
 }

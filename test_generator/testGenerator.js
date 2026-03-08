@@ -8,12 +8,10 @@ export const generate = (outputPath, slug, cases, config) => {
   const moduleName = toPascalCase(slug);
   
   let output = `open Test\n\n`;
-  output += `let skip = (name, _cb) => Console.log("Skipped: " ++ name)\n\n`;
   output += `${config.assertionFunctions}\n\n`;
 
-  cases.forEach((c, index) => {
-    const method = index === 0 ? "test" : "skip";
-    output += config.template(method, c, moduleName);
+  cases.forEach((c) => {
+    output += config.template(c, moduleName);
   });
 
   if (!fs.existsSync(path.dirname(outputPath))) {
