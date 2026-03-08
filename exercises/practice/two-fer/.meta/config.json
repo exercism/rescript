@@ -1,0 +1,22 @@
+{
+  "authors": [
+    "tejasbubane",
+    "therealowenrees"
+  ],
+  "files": {
+    "solution": [
+      "src/TwoFer.res"
+    ],
+    "test": [
+      "tests/TwoFer_test.res"
+    ],
+    "example": [
+      ".meta/TwoFer.res"
+    ],
+    "editor": [
+      "src/TwoFer.resi"
+    ]
+  },
+  "blurb": "Create a sentence of the form \"One for X, one for me.\".",
+  "source_url": "https://github.com/exercism/problem-specifications/issues/757"
+}
