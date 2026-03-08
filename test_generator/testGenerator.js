@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { template } from '../exercises/practice/hello-world/.meta/testTemplate.js';
 
 export const toPascalCase = (slug) => 
   slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
@@ -11,7 +12,9 @@ export const generate = (outputPath, slug, cases, config) => {
   output += `${config.assertionFunctions}\n\n`;
 
   cases.forEach((c) => {
-    output += config.template(c, moduleName);
+    output += `test("${c.description}", () => {
+  ${template(c, moduleName)}
+})`
   });
 
   if (!fs.existsSync(path.dirname(outputPath))) {
