@@ -1,17 +1,18 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { template, assertionFunctions } from '../exercises/practice/hello-world/.meta/testTemplate.js';
 
 export const toPascalCase = (slug) => 
   slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
 
-export const generate = (outputPath, slug, cases) => {
+export const generate = (outputPath, slug, cases, assertionFunctions, template) => {
   const moduleName = toPascalCase(slug);
   
   let output = `open Test
 open ${moduleName}\n\n`;
 
-  assertionFunctions.forEach(fn => output += `${fn}\n\n`)
+  if (Array.isArray(assertionFunctions)) {
+    output += assertionFunctions.map(fn => fn.trim()).join('\n\n') + '\n\n';
+  }
 
   cases.forEach((c) => {
     output += `test("${c.description}", () => {
