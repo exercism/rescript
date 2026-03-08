@@ -16,7 +16,7 @@ open ${moduleName}\n\n`;
   cases.forEach((c) => {
     output += `test("${c.description}", () => {
   ${template(c)}
-})`
+})\n\n`
   });
 
   if (!fs.existsSync(path.dirname(outputPath))) {
