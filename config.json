@@ -19,21 +19,11 @@
     "average_run_time": 7
   },
   "files": {
-    "solution": [
-      "src/%{pascal_slug}.res"
-    ],
-    "test": [
-      "tests/%{pascal_slug}_test.res"
-    ],
-    "example": [
-      ".meta/%{pascal_slug}.res"
-    ],
-    "exemplar": [
-      ".meta/src/%{pascal_slug}.res"
-    ],
-    "editor": [
-      "src/%{pascal_slug}.resi"
-    ]
+    "solution": ["src/%{pascal_slug}.res"],
+    "test": ["tests/%{pascal_slug}_test.res"],
+    "example": [".meta/%{pascal_slug}.res"],
+    "exemplar": [".meta/src/%{pascal_slug}.res"],
+    "editor": ["src/%{pascal_slug}.resi"]
   },
   "exercises": {
     "practice": [
@@ -41,6 +31,14 @@
         "slug": "hello-world",
         "name": "Hello World",
         "uuid": "63d72b81-c7a4-4a94-8224-69f4c68cc374",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
+      },
+      {
+        "slug": "two-fer",
+        "name": "Two-Fer",
+        "uuid": "2a03dbf7-5aae-4859-8fde-b51c11cab02f",
         "practices": [],
         "prerequisites": [],
         "difficulty": 1
