@@ -53,9 +53,9 @@ format:
 generate-tests:
 	@echo "Generating tests for all exercises..."
 	@for exercise in $(EXERCISES); do \
-		if [ -f exercises/practice/$$exercise/.meta/generateTests.js ]; then \
+		if [ -f exercises/practice/$$exercise/.meta/testTemplate.js ]; then \
 			echo "-> Generating: $$exercise"; \
-			node exercises/practice/$$exercise/.meta/generateTests.js || exit 1; \
+			node exercises/practice/$$exercise/.meta/testTemplate.js || exit 1; \
 		else \
 			echo "-> Skipping: $$exercise (no generator found)"; \
 		fi \
