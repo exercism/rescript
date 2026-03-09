@@ -8,5 +8,4 @@ bin/configlet.zip
 node_modules
 
 tmp
-exercises/**/.gitignore
 lib
