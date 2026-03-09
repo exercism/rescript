@@ -1,10 +1,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import getValidCases from './getCases.js';
 
-export const toPascalCase = (slug) => 
+export const generateTests = (dir, slug, assertionFunctions, template) => {
+    const outputPath = path.resolve(dir, '..', 'tests', `${toPascalCase(slug)}_test.res`);
+    const cases = getValidCases(slug);
+    generate(outputPath, slug, cases, assertionFunctions, template);
+}
+
+const toPascalCase = (slug) => 
   slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
 
-export const generate = (outputPath, slug, cases, assertionFunctions, template) => {
+const generate = (outputPath, slug, cases, assertionFunctions, template) => {
   const moduleName = toPascalCase(slug);
   
   let output = `open Test

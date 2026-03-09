@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { stringEqual } from "../../../../test_generator/assertions.js";
-import { generateTests } from '../../../../test_generator/generateTests.js';
+import { generateTests } from '../../../../test_generator/testGenerator.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const slug = path.basename(path.resolve(__dirname, '..'))
