@@ -20,12 +20,26 @@ check-package-files:
 copy-package-file:
 	@cp package.json exercises/practice/$(EXERCISE)/package.json
 	@cp package-lock.json exercises/practice/$(EXERCISE)/package-lock.json
-	@cp rescript.json exercises/practice/$(EXERCISE)/rescript.json
-	
+	@cp templates/rescript.json exercises/practice/$(EXERCISE)/rescript.json
+
 # copy package files to all exercise directories
 sync-package-files:
 	@echo "Syncing package.json and package-lock.json..."
 	@for exercise in $(EXERCISES); do EXERCISE=$$exercise $(MAKE) -s copy-package-file || exit 1; done
+
+# copy all relevant files for a single exercise - test template, config etc.
+copy-exercise-files:
+	@cp package.json exercises/practice/$(EXERCISE)/package.json
+	@cp package-lock.json exercises/practice/$(EXERCISE)/package-lock.json
+	@cp templates/rescript.json exercises/practice/$(EXERCISE)/rescript.json
+	@cp templates/.gitignore exercises/practice/$(EXERCISE)/.gitignore
+	@cp LICENSE exercises/practice/$(EXERCISE)/LICENSE
+	@cp templates/testTemplate.js exercises/practice/$(EXERCISE)/.meta/testTemplate.js
+
+# sync all files for each exercise directory
+sync-exercise-files:
+	@echo "Syncing exercise files..."
+	@for exercise in $(EXERCISES); do EXERCISE=$$exercise $(MAKE) -s copy-exercise-files || exit 1; done
 
 copy-exercise:
 	if [ -f exercises/practice/$(EXERCISE)/src/*.res ]; then \
