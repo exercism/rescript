@@ -4,28 +4,36 @@ EXERCISE ?= ""
 EXERCISES = $(shell find ./exercises/practice -maxdepth 1 -mindepth 1 -type d | cut -s -d '/' -f4 | sort)
 OUTDIR ?= "tmp"
 
-# check all package.json and package-lock.json are matching
-check-package-files:
-	@echo "Validation package.json files..."
-	@for pkg in $(PKG_FILES); do \
-		! ./bin/md5-hash $$pkg | grep -qv $(SOURCE_PKG_MD5) || { echo "$$pkg does not match main package.json.  Please run 'make sync-package-files' locally and commit the results."; exit 1; }; \
-	done
-	@echo "Validation package-lock.json files..."
-	@for pkg in $(PKG_LOCK_FILES); do \
-		! ./bin/md5-hash $$pkg | grep -qv $(SOURCE_PKG_LOCK_MD5) || { echo "$$pkg does not match main package.json.  Please run 'make sync-package-files' locally and commit the results."; exit 1; }; \
-	done
-	@echo "package-file check complete..."
+# Define the files you want to ensure are synced across all exercises
+FILES_TO_CHECK = package.json package-lock.json rescript.json .gitignore
 
-# copy package.json and package-lock.json for single exercise
-copy-package-file:
-	@cp package.json exercises/practice/$(EXERCISE)/package.json
-	@cp package-lock.json exercises/practice/$(EXERCISE)/package-lock.json
-	@cp templates/rescript.json exercises/practice/$(EXERCISE)/rescript.json
+# SOURCE_HASH_package.json = $(shell ./bin/md5-hash ./package.json)
+# SOURCE_HASH_package-lock.json = $(shell ./bin/md5-hash ./package-lock.json)
+# SOURCE_HASH_rescript.json = $(shell ./bin/md5-hash ./templates/rescript.json)
+# SOURCE_HASH_.gitignore = $(shell ./bin/md5-hash ./templates/.gitignore)
 
-# copy package files to all exercise directories
-sync-package-files:
-	@echo "Syncing package.json and package-lock.json..."
-	@for exercise in $(EXERCISES); do EXERCISE=$$exercise $(MAKE) -s copy-package-file || exit 1; done
+check-exercise-files:
+	@for exercise in $(EXERCISES); do \
+		echo "Checking exercise: $$exercise"; \
+		for file in $(FILES_TO_CHECK); do \
+			target="exercises/practice/$$exercise/$$file"; \
+			source="./templates/$$file"; \
+			[ -f $$source ] || source="./$$file"; \
+			\
+			# 1. Check if the file exists \
+			if [ ! -f "$$target" ]; then \
+				echo "ERROR: Missing file $$file in $$exercise. Run make sync-exercise-files and commit the changes."; \
+				exit 1; \
+			fi; \
+			\
+			# 2. Check if the content matches (ignoring name/version) \
+			diff -q -I '"name":' -I '"version":' "$$source" "$$target" > /dev/null || { \
+				echo "ERROR: $$target has significant differences from $$source."; \
+				exit 1; \
+			}; \
+		done; \
+	done
+	@echo "All exercises contain all required files and are in sync."
 
 # copy all relevant files for a single exercise - test template, config etc.
 copy-exercise-files:
@@ -41,6 +49,7 @@ sync-exercise-files:
 	@echo "Syncing exercise files..."
 	@for exercise in $(EXERCISES); do EXERCISE=$$exercise $(MAKE) -s copy-exercise-files || exit 1; done
 
+# copy single exercise build artifacts for testing
 copy-exercise:
 	if [ -f exercises/practice/$(EXERCISE)/src/*.res ]; then \
 		echo "Copying $(EXERCISE)"; \
@@ -48,6 +57,7 @@ copy-exercise:
         	cp exercises/practice/$(EXERCISE)/tests/*.res $(OUTDIR)/tests/; \
 	fi
 
+# copy build artifacts for testing
 copy-all-exercises:
 	@echo "Copying exercises for testing..."
 	@mkdir -p $(OUTDIR)/src
@@ -64,6 +74,7 @@ format:
 	@echo "Formatting ReScript files..."
 	@find . -name "node_modules" -prune -o -name "*.res" -print -o -name "*.resi" -print | xargs npx rescript format
 
+# Generate tests for all exercises
 generate-tests:
 	@echo "Generating tests for all exercises..."
 	@for exercise in $(EXERCISES); do \
@@ -76,6 +87,7 @@ generate-tests:
 	done
 	@echo "All tests generated successfully."
 
+# Generate test for exercise 
 generate-test:
 ifeq ($(EXERCISE),"")
 	$(error EXERCISE variable is required. usage: make generate_test EXERCISE=hello-world)
