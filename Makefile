@@ -5,20 +5,23 @@ EXERCISES = $(shell find ./exercises/practice -maxdepth 1 -mindepth 1 -type d | 
 OUTDIR ?= "tmp"
 
 # Define the files you want to ensure are synced across all exercises
-FILES_TO_CHECK = package.json package-lock.json rescript.json .gitignore
+FILES_TO_CHECK = package.json package-lock.json rescript.json .gitignore LICENSE .meta/testTemplate.js
 
-# SOURCE_HASH_package.json = $(shell ./bin/md5-hash ./package.json)
-# SOURCE_HASH_package-lock.json = $(shell ./bin/md5-hash ./package-lock.json)
-# SOURCE_HASH_rescript.json = $(shell ./bin/md5-hash ./templates/rescript.json)
-# SOURCE_HASH_.gitignore = $(shell ./bin/md5-hash ./templates/.gitignore)
-
+# check all exercise files that need to be in sync
 check-exercise-files:
 	@for exercise in $(EXERCISES); do \
 		echo "Checking exercise: $$exercise"; \
 		for file in $(FILES_TO_CHECK); do \
 			target="exercises/practice/$$exercise/$$file"; \
-			source="./templates/$$file"; \
-			[ -f $$source ] || source="./$$file"; \
+			\
+			# Map the source template path \
+			if [ "$$file" = ".meta/testTemplate.js" ]; then \
+				source="./templates/testTemplate.js"; \
+			elif [ -f "./templates/$$file" ]; then \
+				source="./templates/$$file"; \
+			else \
+				source="./$$file"; \
+			fi; \
 			\
 			# 1. Check if the file exists \
 			if [ ! -f "$$target" ]; then \
@@ -28,7 +31,8 @@ check-exercise-files:
 			\
 			# 2. Check if the content matches (ignoring name/version) \
 			diff -q -I '"name":' -I '"version":' "$$source" "$$target" > /dev/null || { \
-				echo "ERROR: $$target has significant differences from $$source."; \
+				echo "ERROR: $$target does not match template $$source."; \
+				diff -u -I '"name":' -I '"version":' "$$source" "$$target" | head -n 20; \
 				exit 1; \
 			}; \
 		done; \
@@ -96,6 +100,6 @@ endif
 
 test:
 	$(MAKE) -s clean
-	$(MAKE) -s check-package-files
+	$(MAKE) -s check-exercise-files
 	$(MAKE) -s copy-all-exercises
 	npm run ci
