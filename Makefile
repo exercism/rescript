@@ -58,6 +58,7 @@ copy-exercise:
 	if [ -f exercises/practice/$(EXERCISE)/src/*.res ]; then \
 		echo "Copying $(EXERCISE)"; \
         	cp exercises/practice/$(EXERCISE)/.meta/*.res $(OUTDIR)/src/; \
+			cp exercises/practice/$(EXERCISE)/.meta/*.resi $(OUTDIR)/src/; \
         	cp exercises/practice/$(EXERCISE)/tests/*.res $(OUTDIR)/tests/; \
 	fi
 
