@@ -4,14 +4,94 @@
 
 Exercism exercises in ReScript.
 
+## Installation
+
+The exercises in this langauge are written in [ReScript] v12.
+
+### Prerequisites
+
+- [Node.js] >= 22
+- A package manager of your choice e.g. NPM (pre-installed with Node.js), PNPM etc.
+- [make](https://www.gnu.org/software/make/) - look up OS specific installation guides
+
+### Setting up the development environment
+
+Run the following commands to install the required tools:
+
+```shell
+npm install
+git submodule update --init --recursive
+```
+
+If you have format on save enabled for JSON files, it is recommended to disable this feature. Alternatively save JSON files with `Ctrl+K s` to save without applying formatting rules.
+
+### Running the development environment
+
+Open up two terminals. By running the commands below, files will compile on save and re-run the test suite.
+
+```shell
+# Terminal 1
+npm run res:start
+
+# Terminal 2
+npm run test
+```
+
+## Coding Style
+
+Use `PascalCase.res` for Reason implementation file names.
+A ReScript interface file (`.resi`) should be included with every exercise to help the user get started.
+
+Run `make format` on your code before pushing.
+
+If you are using VS Code, install the official [ReScript VS Code extension](https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode) for syntax highlighting and code formatting.
+
+## Adding Exercises
+
+New practice exercises can be added via:
+
+```shell
+bin/add-practice-exercise <exercise-slug>
+
+# Optionally, you can also specify the exercise's difficulty (via `-d`) and/or author's GitHub username (via `-a`):
+bin/add-practice-exercise -a foobar -d 3 <exercise-slug>
+```
+
+Now complete the following steps:
+
+- `config.json` - ensure that the new exercise data is correctly placed in order of difficulty and then alphabetically within that difficulty rating.
+- implement exercise test cases, detailed in the [testing](#testing) section below.
+- `exercises/practice/<exercise-slug>/.meta/<exercise-name>.res` - write an example of code here that will pass all test cases. This does not need to be the finest example of how to complete this exercise, but it must pass all the test cases. Update the interface file with the exposed function signatures in the `.resi` file.
+- `exercises/practice/<exercise-slug>/wrc/<exercise-name>.res` - create an exercise stub here which returns `panic("'<function-name>' has not been implemented")`. Update the interface file with the function signatures, so that the student has a reference to what names and types are used.
+
 ## Testing
 
-To test all exercises, run `./bin/verify-exercises`.
-This command will iterate over all exercises and check to see if their exemplar/example implementation passes all the tests.
+Tests are written using [rescript-test](https://bloodyowl.github.io/rescript-test/). There is a test templating system in place to reduce the amount of work needed by a developer. Follow these steps when writing tests:
 
-To test a single exercise, run `./bin/verify-exercises <exercise-slug>`.
+- `exercises/practice/<exercise-slug>/.meta/tests.toml` - if any of these test cases are not relevant to the language, add `ignore = true` on a newline below the description
+- `exercises/practice/<exercise-slug>/.meta/testTemplate.js` - edit this file to allow the test generator to automatically create test files.
+  - you must write your comparator functions - https://bloodyowl.github.io/rescript-test/assertions.
+  - common assertions with comparator functions are located at `test_generator/assertions.js`. Pass the required ones into the `assertionFunctions` array.
+  - edit the `template` function so that it will generate the test cases. The `c` variable refers to a test case in `problem-specifications/exercises/<exercise-slug>/canonical-data.json`. Look at other exercise test templates for inspiration.
 
-### Using Docker
+Run all exercise tests:
+
+```shell
+make test
+```
+
+This command will iterate over all exercises and check to see if their example implementation passes all the tests.
+
+To test that all exercises will pass in the CI/CD environment, run:
+
+```shell
+./bin/verify-exercises
+
+# test a single exercise:
+./bin/verify-exercises <exercise-slug>
+```
+
+<!-- ### Using Docker
 
 If your track has a working [test runner](https://exercism.org/docs/building/tooling/test-runners), the `./bin/verify-exercises-in-docker` script can also be used to test all exercises.
 This script pulls (_downloads_) the test runner's [Docker image](https://exercism.org/docs/building/tooling/test-runners/docker) and then uses Docker to run that image to test an exercise.
@@ -21,49 +101,37 @@ The main benefit of this approach is that it best mimics how exercises are teste
 Another benefit is that you don't have to install track-specific dependencies (e.g. an SDK) locally, you just need Docker installed.
 ```
 
-To test a single exercise, run `./bin/verify-exercises-in-docker <exercise-slug>`.
+To test a single exercise, run `./bin/verify-exercises-in-docker <exercise-slug>`. -->
 
-### Linting
+## Linting & Formatting
 
 [`configlet`](https://exercism.org/docs/building/configlet) is an Exercism-wide tool for working with tracks. You can download it by running:
 
 ```shell
-$ ./bin/fetch-configlet
+./bin/fetch-configlet
 ```
 
-Run its [`lint` command](https://exercism.org/docs/building/configlet/lint) to verify if exercises have the required files and if config files are correct:
+Run the [`lint` command][configlet-link-link] to verify if exercises have the required files and if config files are correct. Address any issues before pushing your changes:
 
 ```shell
-$ ./bin/configlet lint
-
-The lint command is under development.
-Please re-run this command regularly to see if your track passes the latest linting rules.
-
-Basic linting finished successfully:
-- config.json exists and is valid JSON
-- config.json has these valid fields:
-    language, slug, active, blurb, version, status, online_editor, key_features, tags
-- Every concept has the required .md files
-- Every concept has a valid links.json file
-- Every concept has a valid .meta/config.json file
-- Every concept exercise has the required .md files
-- Every concept exercise has a valid .meta/config.json file
-- Every practice exercise has the required .md files
-- Every practice exercise has a valid .meta/config.json file
-- Required track docs are present
-- Required shared exercise docs are present
+./bin/configlet lint
 ```
 
-## Adding exercises
-
-New (practice) exercises can be added via:
+Run the [`fmt` command][configlet-fmt-link] to verify if exercises and configuration files are formatted correctly. Address any issues before pushing your changes:
 
 ```shell
-bin/add-practice-exercise <exercise-slug>
+./bin/configlet fmt
+
+# check a single exercise
+./bin/configlet -e <exercise-slug>
+
+# auto format files
+./bin/configlet fmt -u
 ```
 
-Optionally, you can also specify the exercise's difficulty (via `-d`) and/or author's GitHub username (via `-a`):
+If you are auto formatting files, only commit the files relevant to your pull request.
 
-```shell
-bin/add-practice-exercise -a foobar -d 3 <exercise-slug>
-```
+[ReScript]: https://rescript-lang.org/
+[Node.js]: https://nodejs.org/
+[configlet-lint-link]: https://exercism.org/docs/building/configlet/lint
+[configlet-fmt-link]: https://exercism.org/docs/building/configlet/fmt
