@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Acronym.res"
+    ],
+    "editor": [
+      "src/Acronym.resi"
     ]
   },
   "blurb": "Convert a long phrase to its acronym.",
