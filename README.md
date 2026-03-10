@@ -25,7 +25,7 @@ cd rescript
 vscode .
 ```
 
-Run the following commands from inside to install the required tools:
+Run the following commands from inside the project root directory to install the required tools:
 
 ```shell
 npm install
@@ -56,6 +56,8 @@ Run `make format` on your code before pushing.
 If you are using VS Code, install the official [ReScript VS Code extension](https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode) for syntax highlighting and code formatting.
 
 ## Adding Exercises
+
+Documentation on contributing to Exercism can be found [here][exercism-contributing-docs-link].
 
 New practice exercises can be added via:
 
@@ -140,6 +142,14 @@ Run the [`fmt` command][configlet-fmt-link] to verify if exercises and configura
 
 If you are auto formatting files, only commit the files relevant to your pull request.
 
+## Pull Requests
+
+Familiarise yourself with the Exercism [documentation][exercism-pr-docs-link] on pull requests.
+
+Make sure your work is commited on a new branch. When you are ready to submit your changes, push your changes to your forked repository and open a pull request on the language track [repository].
+
+More details on how to create pull requests from a fork can be found [here][github-fork-pr-link].
+
 ## Feedback
 
 If you find this documentation is inaccurate or incomplete, or can be improved in any way, please don't hesitate to raise an [issue][issue-link] or submit a pull request.
@@ -150,3 +160,6 @@ If you find this documentation is inaccurate or incomplete, or can be improved i
 [issue-link]: https://github.com/exercism/rescript/issues
 [configlet-lint-link]: https://exercism.org/docs/building/configlet/lint
 [configlet-fmt-link]: https://exercism.org/docs/building/configlet/fmt
+[github-fork-pr-link]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
+[exercism-pr-docs-link]: https://exercism.org/docs/building/github/contributors-pull-request-guide
+[exercism-contributing-docs-link]: https://exercism.org/docs/building
