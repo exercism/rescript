@@ -140,8 +140,13 @@ Run the [`fmt` command][configlet-fmt-link] to verify if exercises and configura
 
 If you are auto formatting files, only commit the files relevant to your pull request.
 
+## Feedback
+
+If you find this documentation is inaccurate or incomplete, or can be improved in any way, please don't hesitate to raise an [issue][issue-link] or submit a pull request.
+
 [ReScript]: https://rescript-lang.org/
 [Node.js]: https://nodejs.org/
 [repository]: https://github.com/exercism/rescript
+[issue-link]: https://github.com/exercism/rescript/issues
 [configlet-lint-link]: https://exercism.org/docs/building/configlet/lint
 [configlet-fmt-link]: https://exercism.org/docs/building/configlet/fmt
