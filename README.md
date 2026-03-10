@@ -16,7 +16,16 @@ The exercises in this langauge are written in [ReScript] v12.
 
 ### Setting up the development environment
 
-Run the following commands to install the required tools:
+Make a fork of the ReScript languge track GitHub [repository]. Clone your fork onto your machine:
+
+```shell
+# assuming you didn't change the repository name
+git clone https://github.com/<your-username>/rescript.git
+cd rescript
+vscode .
+```
+
+Run the following commands from inside to install the required tools:
 
 ```shell
 npm install
@@ -133,5 +142,6 @@ If you are auto formatting files, only commit the files relevant to your pull re
 
 [ReScript]: https://rescript-lang.org/
 [Node.js]: https://nodejs.org/
+[repository]: https://github.com/exercism/rescript
 [configlet-lint-link]: https://exercism.org/docs/building/configlet/lint
 [configlet-fmt-link]: https://exercism.org/docs/building/configlet/fmt
