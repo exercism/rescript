@@ -48,6 +48,14 @@
         "difficulty": 1
       },
       {
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "175a3fc7-2d00-4d42-b4a5-4e8d894603d9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "two-fer",
         "name": "Two-Fer",
         "uuid": "2a03dbf7-5aae-4859-8fde-b51c11cab02f",

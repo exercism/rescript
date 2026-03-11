@@ -30,14 +30,19 @@ check-exercise-files:
 			fi; \
 			\
 			# 2. Check if the content matches (ignoring name/version) \
-			diff -q -I '"name":' -I '"version":' "$$source" "$$target" > /dev/null || { \
-				echo "ERROR: $$target does not match template $$source."; \
-				diff -u -I '"name":' -I '"version":' "$$source" "$$target" | head -n 20; \
-				exit 1; \
-			}; \
+			if [ "$$file" != ".meta/testTemplate.js" ]; then \
+				diff -q -I '"name":' -I '"version":' "$$source" "$$target" > /dev/null || { \
+					echo "ERROR: $$target does not match template $$source."; \
+					diff -u -I '"name":' -I '"version":' "$$source" "$$target" | head -n 20; \
+					exit 1; \
+				}; \
+			fi; \
 		done; \
 	done
 	@echo "All exercises contain all required files and are in sync."
+
+add-test-template:
+	@cp templates/testTemplate.js exercises/practice/$(EXERCISE)/.meta/testTemplate.js
 
 # copy all relevant files for a single exercise - test template, config etc.
 copy-exercise-files:
@@ -46,7 +51,6 @@ copy-exercise-files:
 	@cp templates/rescript.json exercises/practice/$(EXERCISE)/rescript.json
 	@cp templates/.gitignore exercises/practice/$(EXERCISE)/.gitignore
 	@cp LICENSE exercises/practice/$(EXERCISE)/LICENSE
-	@cp templates/testTemplate.js exercises/practice/$(EXERCISE)/.meta/testTemplate.js
 
 # sync all files for each exercise directory
 sync-exercise-files:

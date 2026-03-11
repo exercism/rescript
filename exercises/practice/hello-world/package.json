@@ -1,10 +1,6 @@
 {
   "name": "@exercism/rescript",
   "description": "Exercism exercises in ReScript.",
-  "contributors": [
-    "Tejas Bubane (https://tejasbubane.github.io/)",
-    "Owen Rees (https://github.com/therealowenrees)"
-  ],
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -16,7 +12,8 @@
     "rescript": "^12.1.0"
   },
   "devDependencies": {
-    "rescript-test": "^8.0.0"
+    "rescript-test": "^8.0.0",
+    "toml": "^3.0.0"
   },
   "scripts": {
     "res:build": "rescript",

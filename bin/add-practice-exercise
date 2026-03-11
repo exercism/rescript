@@ -71,6 +71,7 @@ exercise_dir="exercises/practice/${slug}"
 files=$(jq -r --arg dir "${exercise_dir}" '.files | to_entries | map({key: .key, value: (.value | map("'"'"'" + $dir + "/" + . + "'"'"'") | join(" and "))}) | from_entries' "${exercise_dir}/.meta/config.json")
 
 make copy-exercise-files EXERCISE="${slug}"
+make add-test-template EXERCISE="${slug}"
 
 cat << NEXT_STEPS
 
