@@ -125,7 +125,7 @@ Run the [`fmt` command][configlet-fmt-link] to verify if exercises and configura
 ./bin/configlet fmt
 
 # check a single exercise
-./bin/configlet -e <exercise-slug>
+./bin/configlet fmt -e <exercise-slug>
 
 # auto format files
 ./bin/configlet fmt -u
