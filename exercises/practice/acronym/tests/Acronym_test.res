@@ -38,4 +38,3 @@ test("apostrophes", () => {
 test("underscore emphasis", () => {
   stringEqual(~message="underscore emphasis", abbreviate("The Road _Not_ Taken"), "TRNT")
 })
-

@@ -6,4 +6,3 @@ let stringEqual = (~message=?, a: string, b: string) => assertion(~message?, ~op
 test("Say Hi!", () => {
   stringEqual(~message="Say Hi!", hello(), "Hello, World!")
 })
-
