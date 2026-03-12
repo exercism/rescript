@@ -9,4 +9,4 @@ node_modules
 
 tmp
 lib
-**.res.js
+**/*.res.js
