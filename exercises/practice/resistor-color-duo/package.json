@@ -16,9 +16,9 @@
     "toml": "^3.0.0"
   },
   "scripts": {
-    "res:build": "rescript build",
+    "res:build": "rescript",
     "res:start": "rescript build -w",
-    "test": "rescript && retest tests/*.js",
+    "test": "rescript && retest **/tests/*.js",
     "ci": "npm test"
   }
 }

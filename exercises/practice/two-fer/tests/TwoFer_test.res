@@ -14,4 +14,3 @@ test("a name given", () => {
 test("another name given", () => {
   stringEqual(~message="another name given", twoFer(Some("Bob")), "One for Bob, one for me.")
 })
-
