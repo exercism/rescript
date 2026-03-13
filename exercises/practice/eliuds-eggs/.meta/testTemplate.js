@@ -12,7 +12,7 @@ export const assertionFunctions = [ assertEqual ]
 // EDIT THIS WITH YOUR TEST TEMPLATES
 export const template = (c) => {
   const { number } = c.input
-  return `assertEqual(~message="${c.description}", eggCount(${number}), "${c.expected}")`
+  return `assertEqual(~message="${c.description}", eggCount(${number}), ${c.expected})`
 }
 
 generateTests(__dirname, slug, assertionFunctions, template)
