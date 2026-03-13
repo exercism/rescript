@@ -56,6 +56,14 @@
         "difficulty": 2
       },
       {
+        "slug": "bob",
+        "name": "Bob",
+        "uuid": "34944768-f3fe-4e64-800a-69d0a0ed9f55",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "leap",
         "name": "Leap",
         "uuid": "473f85b9-c74e-4c6f-91a0-003b370bff5c",
