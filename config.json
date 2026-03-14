@@ -80,6 +80,14 @@
         "difficulty": 2
       },
       {
+        "slug": "all-your-base",
+        "name": "All Your Base",
+        "uuid": "a8eaf0dc-c5ff-46a2-9c47-86f738909db9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "binary-search",
         "name": "Binary Search",
         "uuid": "75286043-b11b-4653-bfe8-6854ef9fac23",
