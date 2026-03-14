@@ -4,7 +4,8 @@
   ],
   "files": {
     "solution": [
-      "src/Bob.res"
+      "src/Bob.res",
+      "src/Bob.resi"
     ],
     "test": [
       "tests/Bob_test.res"
@@ -12,9 +13,6 @@
     "example": [
       ".meta/Bob.res",
       ".meta/Bob.resi"
-    ],
-    "editor": [
-      "src/Bob.resi"
     ]
   },
   "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited.",
