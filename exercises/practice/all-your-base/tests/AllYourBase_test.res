@@ -1,8 +1,7 @@
 open Test
 open AllYourBase
 
-let assertEqual = (~message=?, a: 'a, b: 'a) =>
-  assertion(~message?, ~operator="assertEqual", (a, b) => a == b, a, b)
+let assertEqual = (~message=?, a: 'a, b: 'a) => assertion(~message?, ~operator="assertEqual", (a, b) => a == b, a, b)
 
 test("single bit one to decimal", () => {
   assertEqual(~message="single bit one to decimal", rebase(2, [1], 10), Some([1]))
@@ -17,11 +16,7 @@ test("single decimal to binary", () => {
 })
 
 test("binary to multiple decimal", () => {
-  assertEqual(
-    ~message="binary to multiple decimal",
-    rebase(2, [1, 0, 1, 0, 1, 0], 10),
-    Some([4, 2]),
-  )
+  assertEqual(~message="binary to multiple decimal", rebase(2, [1, 0, 1, 0, 1, 0], 10), Some([4, 2]))
 })
 
 test("decimal to binary", () => {
