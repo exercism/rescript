@@ -85,6 +85,22 @@
         "difficulty": 2
       },
       {
+        "slug": "resistor-color-duo",
+        "name": "Resistor Color Duo",
+        "uuid": "01cf8fd2-3e48-4b2a-b06f-7a1fdc42d561",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "space-age",
+        "name": "Space Age",
+        "uuid": "addd0202-4207-492d-8f7a-56b7be8d06b2",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "strain",
         "name": "Strain",
         "uuid": "0e11b69e-9339-4f06-9626-ab7c96f66bce",
@@ -96,14 +112,6 @@
         "slug": "two-fer",
         "name": "Two-Fer",
         "uuid": "2a03dbf7-5aae-4859-8fde-b51c11cab02f",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2
-      },
-      {
-        "slug": "resistor-color-duo",
-        "name": "Resistor Color Duo",
-        "uuid": "01cf8fd2-3e48-4b2a-b06f-7a1fdc42d561",
         "practices": [],
         "prerequisites": [],
         "difficulty": 2
