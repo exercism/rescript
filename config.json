@@ -53,6 +53,14 @@
         "difficulty": 2
       },
       {
+        "slug": "anagram",
+        "name": "Anagram",
+        "uuid": "6c2eca3e-c286-403f-8419-06473223618b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "bob",
         "name": "Bob",
         "uuid": "34944768-f3fe-4e64-800a-69d0a0ed9f55",
