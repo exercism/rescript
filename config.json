@@ -72,6 +72,14 @@
         "difficulty": 2
       },
       {
+        "slug": "pangram",
+        "name": "Pangram",
+        "uuid": "ed0c465d-3561-464d-80ed-6541b2ec9410",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "strain",
         "name": "Strain",
         "uuid": "0e11b69e-9339-4f06-9626-ab7c96f66bce",
