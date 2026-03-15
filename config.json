@@ -32,9 +32,6 @@
     "exemplar": [
       ".meta/src/%{pascal_slug}.res",
       ".meta/src/%{pascal_slug}.resi"
-    ],
-    "editor": [
-      "src/%{pascal_slug}.resi"
     ]
   },
   "exercises": {
@@ -80,6 +77,14 @@
         "difficulty": 2
       },
       {
+        "slug": "raindrops",
+        "name": "Raindrops",
+        "uuid": "272561cb-886b-483f-8db7-cf1c6149baeb",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "strain",
         "name": "Strain",
         "uuid": "0e11b69e-9339-4f06-9626-ab7c96f66bce",
@@ -99,6 +104,14 @@
         "slug": "resistor-color-duo",
         "name": "Resistor Color Duo",
         "uuid": "01cf8fd2-3e48-4b2a-b06f-7a1fdc42d561",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "two-fer",
+        "name": "Two-Fer",
+        "uuid": "2a03dbf7-5aae-4859-8fde-b51c11cab02f",
         "practices": [],
         "prerequisites": [],
         "difficulty": 2
@@ -142,14 +155,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 4
-      },
-      {
-        "slug": "raindrops",
-        "name": "Raindrops",
-        "uuid": "272561cb-886b-483f-8db7-cf1c6149baeb",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1
       }
     ]
   },
