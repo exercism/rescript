@@ -103,6 +103,14 @@
         "prerequisites": [],
         "difficulty": 4
       },
+        {
+        "slug": "eliuds-eggs",
+        "name": "Eliud's Eggs",
+        "uuid": "6762991b-07e1-4cef-969a-a84e1b44e866",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
       {
         "slug": "word-count",
         "name": "Word Count",
