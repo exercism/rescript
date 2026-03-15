@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "BNAndras"
+  ],
+  "files": {
+    "solution": [
+      "src/Prism.res",
+      "src/Prism.resi"
+    ],
+    "test": [
+      "tests/Prism_test.res"
+    ],
+    "example": [
+      ".meta/Prism.res",
+      ".meta/Prism.resi"
+    ]
+  },
+  "blurb": "Calculate the path of a laser through refractive prisms.",
+  "source": "FraSanga",
+  "source_url": "https://github.com/exercism/problem-specifications/pull/2625"
+}
