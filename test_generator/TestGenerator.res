@@ -1,14 +1,5 @@
 open Node
-
-type assertionTag = Equal | DeepEqual | Throws
-
-let getAssertionSource = tag => {
-  switch tag {
-  | Equal => `let equal = (~message=?, a, b) => assertion(~message?, ~operator="equal", (a, b) => a == b, a, b)`
-  | DeepEqual => `let deepEqual = (~message=?, a, b) => /* deep equal logic */`
-  | Throws => `let throws = (~message=?, f) => /* throws logic */`
-  }
-}
+open Assertions
 
 let toPascalCase = slug => {
   slug
