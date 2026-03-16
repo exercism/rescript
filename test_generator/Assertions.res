@@ -1,3 +1,5 @@
+// Comparator functions in template string format, injectable into generated tests.
+
 type assertionTag = Equal | DictEqual | Throws
 
 let getAssertionSource = tag => {
