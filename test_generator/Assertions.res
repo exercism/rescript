@@ -5,7 +5,7 @@ let assertEqual = (~message=?, a, b) =>
 
 // This returns the string of code the user actually sees in the test
 let genAssertEqual = (~message, ~actual, ~expected) => {
-  `assertEqual(~message="${message}", ${actual}, ${expected})`
+  `Assertions.assertEqual(~message="${message}", ${actual}, ${expected})`
 }
 
 let dictEqual = (~message=?, a: Dict.t<'a>, b: Dict.t<'a>) => {

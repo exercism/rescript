@@ -12,7 +12,7 @@ let generate = (outputPath, slug, template) => {
   let cases = GetCases.getValidCases(slug)
   let lastCaseIndex = Array.length(cases) - 1
 
-  let output = ref(`open Test\nopen Assertions\nopen ${moduleName}\n\n`)
+  let output = ref(`open Test\nopen ${moduleName}\n\n`)
 
   cases->Array.forEachWithIndex((c, index) => {
     let {description} = c
