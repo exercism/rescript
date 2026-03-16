@@ -1,4 +1,6 @@
-let slug = "acronym"
+open Node
+
+let slug = fileURLToPath(%raw(`import.meta.url`))->basename->Utils.filenameToSlug
 
 let template = (case: GetCases.case) => {
   let expectedStr = JSON.stringify(case.expected)

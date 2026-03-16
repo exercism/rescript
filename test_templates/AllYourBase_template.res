@@ -1,4 +1,6 @@
-let slug = "all-your-base"
+open Node
+
+let slug = fileURLToPath(%raw(`import.meta.url`))->basename->Utils.filenameToSlug
 
 let template = (case: GetCases.case) => {
   let expectedStr = Array.isArray(case.expected) ? `Some(${JSON.stringify(case.expected)})` : "None"

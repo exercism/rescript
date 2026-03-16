@@ -1,4 +1,6 @@
-let slug = "hello-world"
+open Node
+
+let slug = fileURLToPath(%raw(`import.meta.url`))->basename->Utils.filenameToSlug
 
 // EDIT THIS WITH YOUR TEST TEMPLATES
 let template = (case: GetCases.case) => {
