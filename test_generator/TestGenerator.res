@@ -7,17 +7,12 @@ let toPascalCase = slug => {
   ->Array.join("")
 }
 
-let generate = (outputPath, slug, assertionFunctions, template) => {
+let generate = (outputPath, slug, template) => {
   let moduleName = toPascalCase(slug)
   let cases = GetCases.getValidCases(slug)
   let lastCaseIndex = Array.length(cases) - 1
 
-  let output = ref(`open Test\nopen ${moduleName}\n\n`)
-
-  if Array.isArray(assertionFunctions) {
-    let assertionsStr = assertionFunctions->Array.map(fn => String.trim(fn))->Array.join("\n\n")
-    output := output.contents ++ assertionsStr ++ "\n\n"
-  }
+  let output = ref(`open Test\nopen Assertions\nopen ${moduleName}\n\n`)
 
   cases->Array.forEachWithIndex((c, index) => {
     let {description} = c
@@ -37,10 +32,9 @@ let generate = (outputPath, slug, assertionFunctions, template) => {
   Console.log(`Generated: ${basename(outputPath)}`)
 }
 
-let generateTests = (dir, slug, assertionFunctions, template) => {
-  resolve4(dir, "..", "tests", `${toPascalCase(slug)}_test.res`)->generate(
-    slug,
-    assertionFunctions,
-    template,
-  )
+let generateTests = (slug, template) => {
+  let __dirname = dirname(fileURLToPath(%raw("import.meta.url")))
+  let projectRoot = resolve(__dirname, "..")
+  let exercisePath = join([projectRoot, "exercises", "practice", slug, "tests"])
+  resolve(exercisePath, `${toPascalCase(slug)}_test.res`)->generate(slug, template)
 }

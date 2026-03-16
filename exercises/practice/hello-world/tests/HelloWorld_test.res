@@ -1,8 +1,5 @@
 open Test
+open Assertions
 open HelloWorld
 
-let stringEqual = (~message=?, a: string, b: string) => assertion(~message?, ~operator="stringEqual", (a, b) => a == b, a, b)
-
-test("Say Hi!", () => {
-  stringEqual(~message="Say Hi!", hello(), "Hello, World!")
-})
+test("Say Hi!", () => {assertEqual(~message="Say Hi!", hello(), "Hello, World!")})

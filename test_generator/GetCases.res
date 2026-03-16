@@ -11,10 +11,12 @@ type case = {
 let getValidCases = (slug: string): array<case> => {
   let __dirname = dirname(fileURLToPath(%raw("import.meta.url")))
 
-  let tomlPath = join([__dirname, "..", "exercises", "practice", slug, ".meta", "tests.toml"])
+  let projectRoot = resolve(__dirname, "..")
+
+  let tomlPath = join([projectRoot, "exercises", "practice", slug, ".meta", "tests.toml"])
+
   let jsonPath = join([
-    __dirname,
-    "..",
+    projectRoot,
     "problem-specifications",
     "exercises",
     slug,
@@ -36,7 +38,12 @@ let getValidCases = (slug: string): array<case> => {
             const { uuid } = testCase;
             const m = meta[uuid];
             if (uuid && m && m.include !== false) {
-              validCases.push(testCase);
+              // validCases.push(testCase);
+              validCases.push({
+                description: testCase.description,
+                expected: testCase.expected,
+                input: testCase.input
+              });
             }
           }
         }
