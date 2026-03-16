@@ -1,8 +1,14 @@
 open Node
 
+type case = {
+  description: string,
+  expected: JSON.t,
+  input: JSON.t,
+}
+
 @module("toml") external parseToml: string => dict<'a> = "parse"
 
-let getValidCases = (slug: string) => {
+let getValidCases = (slug: string): array<case> => {
   let __dirname = dirname(fileURLToPath(%raw("import.meta.url")))
 
   let tomlPath = join([__dirname, "..", "exercises", "practice", slug, ".meta", "tests.toml"])
@@ -19,7 +25,7 @@ let getValidCases = (slug: string) => {
   let canonicalData: JSON.t = %raw("JSON.parse")(readFileSync(jsonPath, "utf-8"))
 
   // Using %raw here to keep the logic in JS for now
-  let extractCases: (JSON.t, dict<'a>) => array<JSON.t> = %raw(`
+  let extractCases: (JSON.t, dict<'a>) => array<case> = %raw(`
     (data, meta) => {
       const validCases = [];
       const extract = (cases) => {
