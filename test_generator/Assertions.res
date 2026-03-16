@@ -1,12 +1,6 @@
 open Test
 
-let assertEqual = (~message=?, a, b) =>
-  assertion(~message?, ~operator="assertEqual", (a, b) => a == b, a, b)
-
-// This returns the string of code the user actually sees in the test
-let genAssertEqual = (~message, ~actual, ~expected) => {
-  `Assertions.assertEqual(~message="${message}", ${actual}, ${expected})`
-}
+let equal = (~message=?, a, b) => assertion(~message?, ~operator="equal", (a, b) => a == b, a, b)
 
 let dictEqual = (~message=?, a: Dict.t<'a>, b: Dict.t<'a>) => {
   let toSorted = d => {

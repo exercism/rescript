@@ -1,4 +1,6 @@
 open Test
 open HelloWorld
 
-test("Say Hi!", () => {Assertions.assertEqual(~message="Say Hi!", hello(), "Hello, World!")})
+let equal = (~message=?, a, b) => assertion(~message?, ~operator="equal", (a, b) => a == b, a, b)
+
+test("Say Hi!", () => {equal(~message="Say Hi!", hello(), "Hello, World!")})

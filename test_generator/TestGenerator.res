@@ -1,5 +1,15 @@
 open Node
 
+type assertionTag = Equal | DeepEqual | Throws
+
+let getAssertionSource = tag => {
+  switch tag {
+  | Equal => `let equal = (~message=?, a, b) => assertion(~message?, ~operator="equal", (a, b) => a == b, a, b)`
+  | DeepEqual => `let deepEqual = (~message=?, a, b) => /* deep equal logic */`
+  | Throws => `let throws = (~message=?, f) => /* throws logic */`
+  }
+}
+
 let toPascalCase = slug => {
   slug
   ->String.split("-")
@@ -7,12 +17,17 @@ let toPascalCase = slug => {
   ->Array.join("")
 }
 
-let generate = (outputPath, slug, template) => {
+let generate = (outputPath, slug, template, requiredAssertions) => {
   let moduleName = toPascalCase(slug)
   let cases = GetCases.getValidCases(slug)
   let lastCaseIndex = Array.length(cases) - 1
 
   let output = ref(`open Test\nopen ${moduleName}\n\n`)
+
+  let injectedAssertions =
+    requiredAssertions->Array.map(getAssertionSource)->Array.join("\n\n") ++ "\n\n"
+
+  output := output.contents ++ injectedAssertions
 
   cases->Array.forEachWithIndex((c, index) => {
     let {description} = c
@@ -32,9 +47,13 @@ let generate = (outputPath, slug, template) => {
   Console.log(`Generated: ${basename(outputPath)}`)
 }
 
-let generateTests = (slug, template) => {
+let generateTests = (slug, template, requiredAssertions) => {
   let __dirname = dirname(fileURLToPath(%raw("import.meta.url")))
   let projectRoot = resolve(__dirname, "..")
   let exercisePath = join([projectRoot, "exercises", "practice", slug, "tests"])
-  resolve(exercisePath, `${toPascalCase(slug)}_test.res`)->generate(slug, template)
+  resolve(exercisePath, `${toPascalCase(slug)}_test.res`)->generate(
+    slug,
+    template,
+    requiredAssertions,
+  )
 }

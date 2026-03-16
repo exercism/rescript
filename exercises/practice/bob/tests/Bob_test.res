@@ -1,52 +1,54 @@
 open Test
 open Bob
 
-test("stating something", () => {Assertions.assertEqual(~message="stating something", response("Tom-ay-to, tom-aaaah-to."), "Whatever.")})
+let equal = (~message=?, a, b) => assertion(~message?, ~operator="equal", (a, b) => a == b, a, b)
 
-test("shouting", () => {Assertions.assertEqual(~message="shouting", response("WATCH OUT!"), "Whoa, chill out!")})
+test("stating something", () => {equal(~message="stating something", response("Tom-ay-to, tom-aaaah-to."), "Whatever.")})
 
-test("shouting gibberish", () => {Assertions.assertEqual(~message="shouting gibberish", response("FCECDFCAAB"), "Whoa, chill out!")})
+test("shouting", () => {equal(~message="shouting", response("WATCH OUT!"), "Whoa, chill out!")})
 
-test("asking a question", () => {Assertions.assertEqual(~message="asking a question", response("Does this cryogenic chamber make me look fat?"), "Sure.")})
+test("shouting gibberish", () => {equal(~message="shouting gibberish", response("FCECDFCAAB"), "Whoa, chill out!")})
 
-test("asking a numeric question", () => {Assertions.assertEqual(~message="asking a numeric question", response("You are, what, like 15?"), "Sure.")})
+test("asking a question", () => {equal(~message="asking a question", response("Does this cryogenic chamber make me look fat?"), "Sure.")})
 
-test("asking gibberish", () => {Assertions.assertEqual(~message="asking gibberish", response("fffbbcbeab?"), "Sure.")})
+test("asking a numeric question", () => {equal(~message="asking a numeric question", response("You are, what, like 15?"), "Sure.")})
 
-test("talking forcefully", () => {Assertions.assertEqual(~message="talking forcefully", response("Hi there!"), "Whatever.")})
+test("asking gibberish", () => {equal(~message="asking gibberish", response("fffbbcbeab?"), "Sure.")})
 
-test("using acronyms in regular speech", () => {Assertions.assertEqual(~message="using acronyms in regular speech", response("It's OK if you don't want to go work for NASA."), "Whatever.")})
+test("talking forcefully", () => {equal(~message="talking forcefully", response("Hi there!"), "Whatever.")})
 
-test("forceful question", () => {Assertions.assertEqual(~message="forceful question", response("WHAT'S GOING ON?"), "Calm down, I know what I'm doing!")})
+test("using acronyms in regular speech", () => {equal(~message="using acronyms in regular speech", response("It's OK if you don't want to go work for NASA."), "Whatever.")})
 
-test("shouting numbers", () => {Assertions.assertEqual(~message="shouting numbers", response("1, 2, 3 GO!"), "Whoa, chill out!")})
+test("forceful question", () => {equal(~message="forceful question", response("WHAT'S GOING ON?"), "Calm down, I know what I'm doing!")})
 
-test("no letters", () => {Assertions.assertEqual(~message="no letters", response("1, 2, 3"), "Whatever.")})
+test("shouting numbers", () => {equal(~message="shouting numbers", response("1, 2, 3 GO!"), "Whoa, chill out!")})
 
-test("question with no letters", () => {Assertions.assertEqual(~message="question with no letters", response("4?"), "Sure.")})
+test("no letters", () => {equal(~message="no letters", response("1, 2, 3"), "Whatever.")})
 
-test("shouting with special characters", () => {Assertions.assertEqual(~message="shouting with special characters", response("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"), "Whoa, chill out!")})
+test("question with no letters", () => {equal(~message="question with no letters", response("4?"), "Sure.")})
 
-test("shouting with no exclamation mark", () => {Assertions.assertEqual(~message="shouting with no exclamation mark", response("I HATE THE DENTIST"), "Whoa, chill out!")})
+test("shouting with special characters", () => {equal(~message="shouting with special characters", response("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"), "Whoa, chill out!")})
 
-test("statement containing question mark", () => {Assertions.assertEqual(~message="statement containing question mark", response("Ending with ? means a question."), "Whatever.")})
+test("shouting with no exclamation mark", () => {equal(~message="shouting with no exclamation mark", response("I HATE THE DENTIST"), "Whoa, chill out!")})
 
-test("non-letters with question", () => {Assertions.assertEqual(~message="non-letters with question", response(":) ?"), "Sure.")})
+test("statement containing question mark", () => {equal(~message="statement containing question mark", response("Ending with ? means a question."), "Whatever.")})
 
-test("prattling on", () => {Assertions.assertEqual(~message="prattling on", response("Wait! Hang on. Are you going to be OK?"), "Sure.")})
+test("non-letters with question", () => {equal(~message="non-letters with question", response(":) ?"), "Sure.")})
 
-test("silence", () => {Assertions.assertEqual(~message="silence", response(""), "Fine. Be that way!")})
+test("prattling on", () => {equal(~message="prattling on", response("Wait! Hang on. Are you going to be OK?"), "Sure.")})
 
-test("prolonged silence", () => {Assertions.assertEqual(~message="prolonged silence", response("          "), "Fine. Be that way!")})
+test("silence", () => {equal(~message="silence", response(""), "Fine. Be that way!")})
 
-test("alternate silence", () => {Assertions.assertEqual(~message="alternate silence", response("\t\t\t\t\t\t\t\t\t\t"), "Fine. Be that way!")})
+test("prolonged silence", () => {equal(~message="prolonged silence", response("          "), "Fine. Be that way!")})
 
-test("starting with whitespace", () => {Assertions.assertEqual(~message="starting with whitespace", response("         hmmmmmmm..."), "Whatever.")})
+test("alternate silence", () => {equal(~message="alternate silence", response("\t\t\t\t\t\t\t\t\t\t"), "Fine. Be that way!")})
 
-test("ending with whitespace", () => {Assertions.assertEqual(~message="ending with whitespace", response("Okay if like my  spacebar  quite a bit?   "), "Sure.")})
+test("starting with whitespace", () => {equal(~message="starting with whitespace", response("         hmmmmmmm..."), "Whatever.")})
 
-test("other whitespace", () => {Assertions.assertEqual(~message="other whitespace", response("\n\r \t"), "Fine. Be that way!")})
+test("ending with whitespace", () => {equal(~message="ending with whitespace", response("Okay if like my  spacebar  quite a bit?   "), "Sure.")})
 
-test("non-question ending with whitespace", () => {Assertions.assertEqual(~message="non-question ending with whitespace", response("This is a statement ending with whitespace      "), "Whatever.")})
+test("other whitespace", () => {equal(~message="other whitespace", response("\n\r \t"), "Fine. Be that way!")})
 
-test("multiple line question", () => {Assertions.assertEqual(~message="multiple line question", response("\nDoes this cryogenic chamber make\n me look fat?"), "Sure.")})
+test("non-question ending with whitespace", () => {equal(~message="non-question ending with whitespace", response("This is a statement ending with whitespace      "), "Whatever.")})
+
+test("multiple line question", () => {equal(~message="multiple line question", response("\nDoes this cryogenic chamber make\n me look fat?"), "Sure.")})

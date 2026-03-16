@@ -6,11 +6,11 @@ let template = (case: GetCases.case) => {
   let phrase = Utils.getTestCaseInput(case, "heyBob")
 
   // EDIT THIS WITH YOUR ASSERTIONS (use genAssert... name to generate an assertion in the template)
-  Assertions.genAssertEqual(
+  AssertionGenerators.equal(
     ~message=case.description,
     ~actual=`response(${phrase})`,
     ~expected=expectedStr,
   )
 }
 
-TestGenerator.generateTests(slug, template)
+TestGenerator.generateTests(slug, template, [Equal])

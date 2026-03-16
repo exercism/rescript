@@ -5,7 +5,7 @@ let template = (case: GetCases.case) => {
   let expectedStr = JSON.stringify(case.expected)
 
   // EDIT THIS WITH YOUR ASSERTIONS (use genAssert... name to generate an assertion in the template)
-  Assertions.genAssertEqual(~message=case.description, ~actual="hello()", ~expected=expectedStr)
+  AssertionGenerators.equal(~message=case.description, ~actual="hello()", ~expected=expectedStr)
 }
 
-TestGenerator.generateTests(slug, template)
+TestGenerator.generateTests(slug, template, [Equal])
