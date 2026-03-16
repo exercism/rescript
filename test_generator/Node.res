@@ -2,6 +2,7 @@
 @module("node:path") @variadic external join: array<string> => string = "join"
 @module("node:path") external resolve: (string, string) => string = "resolve"
 @module("node:path") external resolve3: (string, string, string) => string = "resolve"
+@module("node:path") external resolve4: (string, string, string, string) => string = "resolve"
 @module("node:path") external dirname: string => string = "dirname"
 @module("node:path") external basename: string => string = "basename"
 
