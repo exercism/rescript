@@ -24,11 +24,7 @@ let generate = (outputPath, slug, assertionFunctions, template) => {
     let testContent = template(c)
     let spacing = index == lastCaseIndex ? "\n" : "\n\n"
 
-    output :=
-      output.contents ++
-      `test("${description}", () => {
-    ${testContent}
-    })${spacing}`
+    output := output.contents ++ `test("${description}", () => {${testContent}})${spacing}`
   })
 
   let dir = dirname(outputPath)
@@ -42,7 +38,7 @@ let generate = (outputPath, slug, assertionFunctions, template) => {
 }
 
 let generateTests = (dir, slug, assertionFunctions, template) => {
-  resolve4(dir, "..", "tests", `${toPascalCase(slug)}_test.res}`)->generate(
+  resolve4(dir, "..", "tests", `${toPascalCase(slug)}_test.res`)->generate(
     slug,
     assertionFunctions,
     template,
