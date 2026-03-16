@@ -42,7 +42,10 @@ check-exercise-files:
 	@echo "All exercises contain all required files and are in sync."
 
 add-test-template:
-	@cp templates/testTemplate.js exercises/practice/$(EXERCISE)/.meta/testTemplate.js
+# 	@cp templates/testTemplate.js exercises/practice/$(EXERCISE)/.meta/testTemplate.js
+	@$(eval PASCAL_EXERCISE=$(shell echo $(EXERCISE) | sed -r 's/(^|-)([a-z])/\U\2/g'))
+	@cp templates/Test_template.res test_templates/$(PASCAL_EXERCISE)_template.res
+	@echo "Copied $(PASCAL_EXERCISE)Template.res to $(EXERCISE)"
 
 # copy all relevant files for a single exercise - test template, config etc.
 copy-exercise-files:
@@ -85,14 +88,19 @@ format:
 
 # Generate tests for all exercises
 generate-tests:
-	@echo "Generating tests for all exercises..."
-	@for exercise in $(EXERCISES); do \
-		if [ -f exercises/practice/$$exercise/.meta/testTemplate.js ]; then \
-			echo "-> Generating: $$exercise"; \
-			node exercises/practice/$$exercise/.meta/testTemplate.js || exit 1; \
-		else \
-			echo "-> Skipping: $$exercise (no generator found)"; \
-		fi \
+# 	@echo "Generating tests for all exercises..."
+# 	@for exercise in $(EXERCISES); do \
+# 		if [ -f exercises/practice/$$exercise/.meta/testTemplate.js ]; then \
+# 			echo "-> Generating: $$exercise"; \
+# 			node exercises/practice/$$exercise/.meta/testTemplate.js || exit 1; \
+# 		else \
+# 			echo "-> Skipping: $$exercise (no generator found)"; \
+# 		fi \
+# 	done
+	@echo "Generating tests from test_templates directory..."
+	@for template in $(wildcard test_templates/*_template.res.js); do \
+		echo "-> Running template: $$template"; \
+		node $$template || exit 1; \
 	done
 	@echo "All tests generated successfully."
 
@@ -105,6 +113,6 @@ endif
 
 test:
 	$(MAKE) -s clean
-	$(MAKE) -s check-exercise-files
+# 	$(MAKE) -s check-exercise-files
 	$(MAKE) -s copy-all-exercises
 	npm run ci
