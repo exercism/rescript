@@ -1,11 +1,11 @@
-// UNCOMMENT CODE
+open Node
 
-// EDIT THIS WITH THE EXERCISE SLUG, eg. all-your-base
-let slug = "exercise-name"
+let slug = fileURLToPath(%raw(`import.meta.url`))->basename->Utils.filenameToSlug
 
 // REMOVE WHEN IMPLEMENTING TEST
 panic("test not yet implemented")
 
+// UNCOMMENT CODE BELOW AND EDIT WITH YOUR TEST TEMPLATE
 // let template = (case: GetCases.case) => {
 //   let expectedStr = JSON.stringify(case.expected)
 
