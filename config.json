@@ -166,6 +166,14 @@
         "difficulty": 4
       },
       {
+        "slug": "phone-number",
+        "name": "Phone Number",
+        "uuid": "06a94d23-74e6-4cef-bf3a-2c9a381049f9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "prism",
         "name": "Prism",
         "uuid": "e93dea1f-74c5-442d-a8eb-5b82311d00e5",
