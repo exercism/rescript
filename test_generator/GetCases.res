@@ -1,6 +1,7 @@
 open Node
 
 type case = {
+  property: string,
   description: string,
   expected: JSON.t,
   input: JSON.t,
@@ -40,6 +41,7 @@ let getValidCases = (slug: string): array<case> => {
             if (uuid && m && m.include !== false) {
               // validCases.push(testCase);
               validCases.push({
+                property: testCase.property,
                 description: testCase.description,
                 expected: testCase.expected,
                 input: testCase.input
