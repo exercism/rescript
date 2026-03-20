@@ -3,3 +3,7 @@
 let equal = (~message, ~actual, ~expected) => {
   `equal(~message="${message}", ${actual}, ${expected})`
 }
+
+let floatApproximatelyEqual = (~message, ~actual, ~expected) => {
+  `floatApproximatelyEqual(~message="${message}", ${actual}, ${expected})`
+}

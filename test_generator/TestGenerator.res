@@ -23,6 +23,7 @@ let generate = (outputPath, slug, template, requiredAssertions) => {
   cases->Array.forEachWithIndex((c, index) => {
     let {description} = c
     let testContent = template(c)
+
     let spacing = index == lastCaseIndex ? "\n" : "\n\n"
 
     output := output.contents ++ `test("${description}", () => {${testContent}})${spacing}`

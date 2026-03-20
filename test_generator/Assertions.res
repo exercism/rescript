@@ -1,10 +1,11 @@
 // Comparator functions in template string format, injectable into generated tests.
 
-type assertionTag = Equal | DictEqual | Throws
+type assertionTag = Equal | DictEqual | Throws | FloatApproximatelyEqual(int)
 
 let getAssertionSource = tag => {
   switch tag {
   | Equal => `let equal = (~message=?, a, b) => assertion(~message?, ~operator="equal", (a, b) => a == b, a, b)`
+
   | DictEqual => `let dictEqual = (~message=?, a: Dict.t<'a>, b: Dict.t<'a>) => {
       let toSorted = d => {
         let arr = Dict.toArray(d)
@@ -13,6 +14,15 @@ let getAssertionSource = tag => {
       }
       assertion(~message?, ~operator="dictEqual", (a, b) => toSorted(a) == toSorted(b), a, b)
     }`
+
+  | FloatApproximatelyEqual(precision) => {
+      let tolerance = precision->Int.toString
+      let toleranceLit = !String.includes(tolerance, ".") ? tolerance ++ "." : tolerance
+
+      `let floatApproximatelyEqual = (~message=?, a, b) => 
+        assertion(~message?, ~operator="floatApprox", (a, b) => Math.abs(a -. b) <= ${toleranceLit}, a, b)`
+    }
+
   | Throws => `let throws = (~message=?, f) => /* throws logic */`
   }
 }
