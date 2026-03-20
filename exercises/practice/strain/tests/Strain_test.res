@@ -1,112 +1,32 @@
 open Test
 open Strain
 
-let assertEqual = (~message=?, a: 'a, b: 'a) => assertion(~message?, ~operator="assertEqual", (a, b) => a == b, a, b)
+let equal = (~message=?, a, b) => assertion(~message?, ~operator="equal", (a, b) => a == b, a, b)
 
-test("keep on empty list returns empty list", () => {
-  let list = []
-  let predicate = _ => true
-  let expected = []
-  assertEqual(~message="keep on empty list returns empty list", keep(list, predicate), expected)
-})
+test("keep on empty list returns empty list", () => {equal(~message="keep on empty list returns empty list", keep([], (_ => true)), [])})
 
-test("keeps everything", () => {
-  let list = [1, 3, 5]
-  let predicate = _ => true
-  let expected = [1, 3, 5]
-  assertEqual(~message="keeps everything", keep(list, predicate), expected)
-})
+test("keeps everything", () => {equal(~message="keeps everything", keep([1,3,5], (_ => true)), [1,3,5])})
 
-test("keeps nothing", () => {
-  assertEqual(~message="keeps nothing", keep([1, 3, 5], _ => false), [])
-})
+test("keeps nothing", () => {equal(~message="keeps nothing", keep([1,3,5], (_ => false)), [])})
 
-test("keeps first and last", () => {
-  let list = [1, 2, 3]
-  let predicate = x => mod(x, 2) == 1
-  let expected = [1, 3]
-  assertEqual(~message="keeps first and last", keep(list, predicate), expected)
-})
+test("keeps first and last", () => {equal(~message="keeps first and last", keep([1,2,3], (x => mod(x, 2) == 1)), [1,3])})
 
-test("keeps neither first nor last", () => {
-  let list = [1, 2, 3]
-  let predicate = x => mod(x, 2) == 0
-  let expected = [2]
-  assertEqual(~message="keeps neither first nor last", keep(list, predicate), expected)
-})
+test("keeps neither first nor last", () => {equal(~message="keeps neither first nor last", keep([1,2,3], (x => mod(x, 2) == 0)), [2])})
 
-test("keeps strings", () => {
-  let list = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
-  let predicate = x => String.startsWith(x, "z")
-  let expected = ["zebra", "zombies", "zealot"]
-  assertEqual(~message="keeps strings", keep(list, predicate), expected)
-})
+test("keeps strings", () => {equal(~message="keeps strings", keep(["apple","zebra","banana","zombies","cherimoya","zealot"], (x => String.startsWith(x, "z"))), ["zebra","zombies","zealot"])})
 
-test("keeps lists", () => {
-  let list = [
-    [1, 2, 3],
-    [5, 5, 5],
-    [5, 1, 2],
-    [2, 1, 2],
-    [1, 5, 2],
-    [2, 2, 1],
-    [1, 2, 5],
-  ]
-  let predicate = x => Array.includes(x, 5)
-  let expected = [[5, 5, 5], [5, 1, 2], [1, 5, 2], [1, 2, 5]]
-  assertEqual(~message="keeps lists", keep(list, predicate), expected)
-})
+test("keeps lists", () => {equal(~message="keeps lists", keep([[1,2,3],[5,5,5],[5,1,2],[2,1,2],[1,5,2],[2,2,1],[1,2,5]], (x => Array.includes(x, 5))), [[5,5,5],[5,1,2],[1,5,2],[1,2,5]])})
 
-test("discard on empty list returns empty list", () => {
-  let list = []
-  let predicate = _ => true
-  let expected = []
-  assertEqual(~message="discard on empty list returns empty list", discard(list, predicate), expected)
-})
+test("discard on empty list returns empty list", () => {equal(~message="discard on empty list returns empty list", discard([], (_ => true)), [])})
 
-test("discards everything", () => {
-  assertEqual(~message="discards everything", discard([1, 3, 5], _ => true), [])
-})
+test("discards everything", () => {equal(~message="discards everything", discard([1,3,5], (_ => true)), [])})
 
-test("discards nothing", () => {
-  let list = [1, 3, 5]
-  let predicate = _ => false
-  let expected = [1, 3, 5]
-  assertEqual(~message="discards nothing", discard(list, predicate), expected)
-})
+test("discards nothing", () => {equal(~message="discards nothing", discard([1,3,5], (_ => false)), [1,3,5])})
 
-test("discards first and last", () => {
-  let list = [1, 2, 3]
-  let predicate = x => mod(x, 2) == 1
-  let expected = [2]
-  assertEqual(~message="discards first and last", discard(list, predicate), expected)
-})
+test("discards first and last", () => {equal(~message="discards first and last", discard([1,2,3], (x => mod(x, 2) == 1)), [2])})
 
-test("discards neither first nor last", () => {
-  let list = [1, 2, 3]
-  let predicate = x => mod(x, 2) == 0
-  let expected = [1, 3]
-  assertEqual(~message="discards neither first nor last", discard(list, predicate), expected)
-})
+test("discards neither first nor last", () => {equal(~message="discards neither first nor last", discard([1,2,3], (x => mod(x, 2) == 0)), [1,3])})
 
-test("discards strings", () => {
-  let list = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"]
-  let predicate = x => String.startsWith(x, "z")
-  let expected = ["apple", "banana", "cherimoya"]
-  assertEqual(~message="discards strings", discard(list, predicate), expected)
-})
+test("discards strings", () => {equal(~message="discards strings", discard(["apple","zebra","banana","zombies","cherimoya","zealot"], (x => String.startsWith(x, "z"))), ["apple","banana","cherimoya"])})
 
-test("discards lists", () => {
-  let list = [
-    [1, 2, 3],
-    [5, 5, 5],
-    [5, 1, 2],
-    [2, 1, 2],
-    [1, 5, 2],
-    [2, 2, 1],
-    [1, 2, 5],
-  ]
-  let predicate = x => Array.includes(x, 5)
-  let expected = [[1, 2, 3], [2, 1, 2], [2, 2, 1]]
-  assertEqual(~message="discards lists", discard(list, predicate), expected)
-})
+test("discards lists", () => {equal(~message="discards lists", discard([[1,2,3],[5,5,5],[5,1,2],[2,1,2],[1,5,2],[2,2,1],[1,2,5]], (x => Array.includes(x, 5))), [[1,2,3],[2,1,2],[2,2,1]])})
