@@ -1,16 +1,10 @@
 open Test
 open TwoFer
 
-let stringEqual = (~message=?, a: string, b: string) => assertion(~message?, ~operator="stringEqual", (a, b) => a == b, a, b)
+let equal = (~message=?, a, b) => assertion(~message?, ~operator="equal", (a, b) => a == b, a, b)
 
-test("no name given", () => {
-  stringEqual(~message="no name given", twoFer(None), "One for you, one for me.")
-})
+test("no name given", () => {equal(~message="no name given", twoFer(None), "One for you, one for me.")})
 
-test("a name given", () => {
-  stringEqual(~message="a name given", twoFer(Some("Alice")), "One for Alice, one for me.")
-})
+test("a name given", () => {equal(~message="a name given", twoFer(Some("Alice")), "One for Alice, one for me.")})
 
-test("another name given", () => {
-  stringEqual(~message="another name given", twoFer(Some("Bob")), "One for Bob, one for me.")
-})
+test("another name given", () => {equal(~message="another name given", twoFer(Some("Bob")), "One for Bob, one for me.")})
