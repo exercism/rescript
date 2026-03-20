@@ -15,3 +15,10 @@ let filenameToSlug = (str: string) => {
   ->String.replaceRegExp(/([a-z0-9])([A-Z])/g, "$1-$2")
   ->String.toLowerCase
 }
+
+// JSON helper - if there's no decimal point, add one for ReScript float syntax (e.g., "10" -> "10.")
+let toResFloat = (json: JSON.t) => {
+  let f = json->JSON.Decode.float->Option.getOr(0.0)
+  let s = f->Float.toString
+  !String.includes(s, ".") ? s ++ "." : s
+}
