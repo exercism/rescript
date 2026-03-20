@@ -62,9 +62,25 @@
         "difficulty": 2
       },
       {
+        "slug": "armstrong-numbers",
+        "name": "Armstrong Numbers",
+        "uuid": "618bde52-73d2-4688-afd9-599f733ed05d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "bob",
         "name": "Bob",
         "uuid": "34944768-f3fe-4e64-800a-69d0a0ed9f55",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "isogram",
+        "name": "Isogram",
+        "uuid": "7cf8a5d3-2b4e-4f9d-bd01-9badc2dc82e5",
         "practices": [],
         "prerequisites": [],
         "difficulty": 2
@@ -153,6 +169,14 @@
         "slug": "eliuds-eggs",
         "name": "Eliud's Eggs",
         "uuid": "6762991b-07e1-4cef-969a-a84e1b44e866",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "phone-number",
+        "name": "Phone Number",
+        "uuid": "06a94d23-74e6-4cef-bf3a-2c9a381049f9",
         "practices": [],
         "prerequisites": [],
         "difficulty": 4
