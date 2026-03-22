@@ -78,6 +78,14 @@
         "difficulty": 2
       },
       {
+        "slug": "difference-of-squares",
+        "name": "Difference of Squares",
+        "uuid": "f35e2ea8-b675-432a-87b1-e5c23ae4dd0f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "isogram",
         "name": "Isogram",
         "uuid": "7cf8a5d3-2b4e-4f9d-bd01-9badc2dc82e5",

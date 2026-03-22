@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "BNAndras"
+  ],
+  "files": {
+    "solution": [
+      "src/DifferenceOfSquares.res",
+      "src/DifferenceOfSquares.resi"
+    ],
+    "test": [
+      "tests/DifferenceOfSquares_test.res"
+    ],
+    "example": [
+      ".meta/DifferenceOfSquares.res",
+      ".meta/DifferenceOfSquares.resi"
+    ]
+  },
+  "blurb": "Find the difference between the square of the sum and the sum of the squares of the first N natural numbers.",
+  "source": "Problem 6 at Project Euler",
+  "source_url": "https://projecteuler.net/problem=6"
+}
