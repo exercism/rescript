@@ -88,21 +88,14 @@ format:
 
 # Generate tests for all exercises
 generate-tests:
-# 	@echo "Generating tests for all exercises..."
-# 	@for exercise in $(EXERCISES); do \
-# 		if [ -f exercises/practice/$$exercise/.meta/testTemplate.js ]; then \
-# 			echo "-> Generating: $$exercise"; \
-# 			node exercises/practice/$$exercise/.meta/testTemplate.js || exit 1; \
-# 		else \
-# 			echo "-> Skipping: $$exercise (no generator found)"; \
-# 		fi \
-# 	done
 	@echo "Generating tests from test_templates directory..."
 	@for template in $(wildcard test_templates/*_template.res.js); do \
 		echo "-> Running template: $$template"; \
 		node $$template || exit 1; \
 	done
-	@echo "All tests generated successfully."
+	@echo "Formatting files"
+	npm run res:format-fix
+	@echo "All tests generated and formatted successfully."
 
 # Generate test for exercise 
 generate-test:
