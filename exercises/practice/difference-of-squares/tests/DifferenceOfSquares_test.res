@@ -15,14 +15,8 @@ test("sum of squares 5", () => {equal(~message="sum of squares 5", sumOfSquares(
 
 test("sum of squares 100", () => {equal(~message="sum of squares 100", sumOfSquares(100), 338350)})
 
-test("difference of squares 1", () => {
-  equal(~message="difference of squares 1", differenceOfSquares(1), 0)
-})
+test("difference of squares 1", () => {equal(~message="difference of squares 1", differenceOfSquares(1), 0)})
 
-test("difference of squares 5", () => {
-  equal(~message="difference of squares 5", differenceOfSquares(5), 170)
-})
+test("difference of squares 5", () => {equal(~message="difference of squares 5", differenceOfSquares(5), 170)})
 
-test("difference of squares 100", () => {
-  equal(~message="difference of squares 100", differenceOfSquares(100), 25164150)
-})
+test("difference of squares 100", () => {equal(~message="difference of squares 100", differenceOfSquares(100), 25164150)})
