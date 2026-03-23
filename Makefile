@@ -5,7 +5,7 @@ EXERCISES = $(shell find ./exercises/practice -maxdepth 1 -mindepth 1 -type d | 
 OUTDIR ?= "tmp"
 
 # Define the files you want to ensure are synced across all exercises
-FILES_TO_CHECK = package.json package-lock.json rescript.json .gitignore LICENSE .meta/testTemplate.js
+FILES_TO_CHECK = package.json package-lock.json rescript.json .gitignore LICENSE
 
 # check all exercise files that need to be in sync
 check-exercise-files:
@@ -15,9 +15,7 @@ check-exercise-files:
 			target="exercises/practice/$$exercise/$$file"; \
 			\
 			# Map the source template path \
-			if [ "$$file" = ".meta/testTemplate.js" ]; then \
-				source="./templates/testTemplate.js"; \
-			elif [ -f "./templates/$$file" ]; then \
+			if [ -f "./templates/$$file" ]; then \
 				source="./templates/$$file"; \
 			else \
 				source="./$$file"; \
@@ -42,7 +40,6 @@ check-exercise-files:
 	@echo "All exercises contain all required files and are in sync."
 
 add-test-template:
-# 	@cp templates/testTemplate.js exercises/practice/$(EXERCISE)/.meta/testTemplate.js
 	@$(eval PASCAL_EXERCISE=$(shell echo $(EXERCISE) | sed -r 's/(^|-)([a-z])/\U\2/g'))
 	@cp templates/Test_template.res test_templates/$(PASCAL_EXERCISE)_template.res
 	@echo "Copied $(PASCAL_EXERCISE)Template.res to $(EXERCISE)"
