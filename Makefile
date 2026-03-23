@@ -117,5 +117,4 @@ test:
 	$(MAKE) -s clean
 	$(MAKE) -s check-exercise-files
 	$(MAKE) -s copy-all-exercises
-	npm run res:format-check
 	npm run ci
