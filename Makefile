@@ -94,15 +94,27 @@ generate-tests:
 	npm run res:format-fix
 	@echo "All tests generated and formatted successfully."
 
-# Generate test for exercise 
+# Generate test for exercise
 generate-test:
-ifeq ($(EXERCISE),"")
-	$(error EXERCISE variable is required. usage: make generate_test EXERCISE=hello-world)
+ifeq ($(EXERCISE),)
+	$(error EXERCISE variable is required. usage: make generate-test EXERCISE=hello-world)
 endif
-	@node exercises/practice/$(EXERCISE)/.meta/generateTests.js
+	@# 1. Replace hyphens/underscores with spaces 
+	@# 2. Capitalize first letter of every word
+	@# 3. Remove spaces
+	$(eval PASCAL_EXERCISE=$(shell echo "$(EXERCISE)" | sed -E 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($$i,1,1)),$$i)}1' | sed 's/ //g'))
+	
+	@if [ ! -f "test_templates/$(PASCAL_EXERCISE)_template.res.js" ]; then \
+		echo "Error: Template 'test_templates/$(PASCAL_EXERCISE)_template.res.js' not found (converted from '$(EXERCISE)')"; \
+		exit 1; \
+	fi
+	
+	@echo "-> Running template: test_templates/$(PASCAL_EXERCISE)_template.res.js"
+	@node test_templates/$(PASCAL_EXERCISE)_template.res.js || exit 1
+	npm run res:format-fix
 
 test:
 	$(MAKE) -s clean
-# 	$(MAKE) -s check-exercise-files
+	$(MAKE) -s check-exercise-files
 	$(MAKE) -s copy-all-exercises
 	npm run ci
