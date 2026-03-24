@@ -8,16 +8,14 @@ panic("test not yet implemented")
 // UNCOMMENT CODE BELOW AND EDIT WITH YOUR TEST TEMPLATE
 // let template = (case: GetCases.case) => {
 //   let expectedStr = JSON.stringify(case.expected)
-
 //   let input = Utils.getTestCaseInput(case, "phrase")
-//   let phrase = JSON.stringify(input)
 
 // EDIT THIS WITH YOUR ASSERTIONS (use genAssert... name to generate an assertion in the template)
-//   Assertions.genAssertEqual(
+//   AssertionGenerators(
 //     ~message=case.description,
 //     ~actual=`functionName(${input})`,
 //     ~expected=expectedStr,
 //   )
 // }
 
-// TestGenerator.generateTests(slug, template)
+// TestGenerator.generateTests(slug, template, [Equal])
