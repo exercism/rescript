@@ -2,22 +2,28 @@ open Node
 
 let slug = fileURLToPath(%raw(`import.meta.url`))->basename->Utils.filenameToSlug
 
-// REMOVE WHEN IMPLEMENTING TEST
-panic("test not yet implemented")
+let template = (case: GetCases.case) => {
+  let input = Utils.getTestCaseInput(case, "strand")
 
-// UNCOMMENT CODE BELOW AND EDIT WITH YOUR TEST TEMPLATE
-// let template = (case: GetCases.case) => {
-//   let expectedStr = JSON.stringify(case.expected)
+  let expectedStr = switch case.expected->JSON.Decode.array {
+  | Some(arr) if arr->Array.length > 0 => {
+      let variants =
+        arr
+        ->Array.map(val => {
+          val->JSON.Decode.string->Option.getOr("")->String.capitalize
+        })
+        ->Array.join(", ")
 
-//   let input = Utils.getTestCaseInput(case, "phrase")
-//   let phrase = JSON.stringify(input)
+      `Some([${variants}])`
+    }
+  | _ => "None"
+  }
 
-// EDIT THIS WITH YOUR ASSERTIONS (use genAssert... name to generate an assertion in the template)
-//   Assertions.genAssertEqual(
-//     ~message=case.description,
-//     ~actual=`functionName(${input})`,
-//     ~expected=expectedStr,
-//   )
-// }
+  AssertionGenerators.equal(
+    ~message=case.description,
+    ~actual=`${case.property}(${input})`,
+    ~expected=expectedStr,
+  )
+}
 
-// TestGenerator.generateTests(slug, template)
+TestGenerator.generateTests(slug, template, [Equal])
