@@ -13,11 +13,7 @@ let template = (case: GetCases.case) => {
   | _ => panic(`Unknown property: ${case.property}`)
   }
 
-  AssertionGenerators.equal(
-    ~message=case.description,
-    ~actual,
-    ~expected,
-  )
+  AssertionGenerators.equal(~message=case.description, ~actual, ~expected)
 }
 
 TestGenerator.generateTests(slug, template, [Equal])
