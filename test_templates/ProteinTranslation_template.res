@@ -6,7 +6,7 @@ let template = (case: GetCases.case) => {
   let input = Utils.getTestCaseInput(case, "strand")
 
   let expectedStr = switch case.expected->JSON.Decode.array {
-  | Some(arr) if arr->Array.length > 0 => {
+  | Some(arr) => {
       let variants =
         arr
         ->Array.map(val => {
@@ -16,7 +16,7 @@ let template = (case: GetCases.case) => {
 
       `Some([${variants}])`
     }
-  | _ => "None"
+  | None => "None"
   }
 
   AssertionGenerators.equal(
