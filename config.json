@@ -214,6 +214,14 @@
         "difficulty": 4
       },
       {
+        "slug": "protein-translation",
+        "name": "Protein Translation",
+        "uuid": "5d9917ca-8c09-431f-b5dd-71a338b9b497",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "word-count",
         "name": "Word Count",
         "uuid": "37104504-e817-4164-9379-c71b81ecd44c",
