@@ -23,10 +23,7 @@ let allergenToValue = (allergen: allergen): int => {
 
 let allAllergens = [Eggs, Peanuts, Shellfish, Strawberries, Tomatoes, Chocolate, Pollen, Cats]
 
-let allergicTo = (allergen, score) => {
-  let target = allergenToValue(allergen)
-  Int.bitwiseAnd(score, target) !== 0
-}
+let allergicTo = (allergen, score) => allergenToValue(allergen)->Int.bitwiseAnd(score) !== 0
 
 let list = score => {
   let effectiveScore = mod(score, 256)
