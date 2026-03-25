@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "therealowenrees"
+  ],
+  "files": {
+    "solution": [
+      "src/Allergies.res",
+      "src/Allergies.resi"
+    ],
+    "test": [
+      "tests/Allergies_test.res"
+    ],
+    "example": [
+      ".meta/Allergies.res",
+      ".meta/Allergies.resi"
+    ]
+  },
+  "blurb": "Given a person's allergy score, determine whether or not they're allergic to a given item, and their full list of allergies.",
+  "source": "Exercise by the JumpstartLab team for students at The Turing School of Software and Design.",
+  "source_url": "https://www.turing.edu/"
+}
