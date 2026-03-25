@@ -5,11 +5,8 @@ let slug = fileURLToPath(%raw(`import.meta.url`))->basename->Utils.filenameToSlu
 let template = (case: GetCases.case) => {
   let functionArgs =
     case.property == "allergicTo"
-      ? `(${Utils.getTestCaseInputAsVariant(case, "item")}, ${Utils.getTestCaseInput(
-            case,
-            "score",
-          )})`
-      : ""
+      ? `${Utils.getTestCaseInputAsVariant(case, "item")}, ${Utils.getTestCaseInput(case, "score")}`
+      : `${Utils.getTestCaseInput(case, "score")}`
 
   let expectedStr =
     case.property == "list"
@@ -18,7 +15,7 @@ let template = (case: GetCases.case) => {
 
   AssertionGenerators.equal(
     ~message=case.description,
-    ~actual=`${case.property}${functionArgs}`,
+    ~actual=`${case.property}(${functionArgs})`,
     ~expected=expectedStr,
   )
 }
