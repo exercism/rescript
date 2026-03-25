@@ -22,3 +22,20 @@ let toResFloat = (json: JSON.t) => {
   let s = f->Float.toString
   !String.includes(s, ".") ? s ++ "." : s
 }
+
+// Convert JSON encoded array of strings to an array of variants
+let caseArrayToVariantOptionArray = (arr: JSON.t) => {
+  switch arr->JSON.Decode.array {
+  | Some(arr) => {
+      let variants =
+        arr
+        ->Array.map(val => {
+          val->JSON.Decode.string->Option.getOr("")->String.capitalize
+        })
+        ->Array.join(", ")
+
+      `Some([${variants}])`
+    }
+  | None => "None"
+  }
+}
