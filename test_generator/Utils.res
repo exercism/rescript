@@ -7,6 +7,15 @@ let getTestCaseInput = (case: GetCases.case, inputName: string) => {
   ->JSON.stringify
 }
 
+let getTestCaseInputAsVariant = (case: GetCases.case, inputName: string) => {
+  case.input
+  ->JSON.Decode.object
+  ->Option.flatMap(dict => Dict.get(dict, inputName))
+  ->Option.flatMap(JSON.Decode.string)
+  ->Option.map(String.capitalize)
+  ->Option.getOr("")
+}
+
 let filenameToSlug = (str: string) => {
   str
   // Remove file extensions if present
@@ -26,6 +35,7 @@ let toResFloat = (json: JSON.t) => {
 // Convert JSON encoded array of strings to an array of variants
 let caseArrayToVariantOptionArray = (arr: JSON.t) => {
   switch arr->JSON.Decode.array {
+  | Some([]) | None => "None"
   | Some(arr) => {
       let variants =
         arr
@@ -36,6 +46,5 @@ let caseArrayToVariantOptionArray = (arr: JSON.t) => {
 
       `Some([${variants}])`
     }
-  | None => "None"
   }
 }
