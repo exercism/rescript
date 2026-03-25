@@ -7,6 +7,7 @@ let getTestCaseInput = (case: GetCases.case, inputName: string) => {
   ->JSON.stringify
 }
 
+// Convert string case input to variant - this is a capitalized string which the compiler reads as a variant
 let getTestCaseInputAsVariant = (case: GetCases.case, inputName: string) => {
   case.input
   ->JSON.Decode.object
