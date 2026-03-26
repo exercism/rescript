@@ -34,18 +34,18 @@ let toResFloat = (json: JSON.t) => {
 }
 
 // Convert JSON encoded array of strings to an array of variants
-let caseArrayToVariantOptionArray = (arr: JSON.t) => {
-  switch arr->JSON.Decode.array {
-  | Some([]) | None => "None"
-  | Some(arr) => {
-      let variants =
-        arr
-        ->Array.map(val => {
-          val->JSON.Decode.string->Option.getOr("")->String.capitalize
-        })
-        ->Array.join(", ")
-
-      `Some([${variants}])`
-    }
-  }
+let caseStringArrayToVariantArray = (json): array<string> => {
+  json
+  ->JSON.Decode.array
+  ->Option.map(arr => {
+    arr->Array.filterMap(item => {
+      item
+      ->JSON.Decode.string
+      ->Option.map(String.capitalize)
+    })
+  })
+  ->Option.getOr([]) // If decoding fails or is null, return []
 }
+
+// Convert an array to a string representation eg. "[Item1, Item2, Item3]"
+let arrayToString = arr => `[` ++ arr->Array.join(", ") ++ `]`
