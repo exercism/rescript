@@ -10,7 +10,7 @@ let template = (case: GetCases.case) => {
 
   let expectedStr =
     case.property == "list"
-      ? Utils.caseArrayToVariantOptionArray(case.expected)
+      ? Utils.caseStringArrayToVariantArray(case.expected)->Utils.arrayToString
       : JSON.stringify(case.expected)
 
   AssertionGenerators.equal(

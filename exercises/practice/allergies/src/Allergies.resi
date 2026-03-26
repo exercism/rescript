@@ -9,4 +9,4 @@ type allergen =
   | Eggs
 
 let allergicTo: (allergen, int) => bool
-let list: int => option<array<allergen>>
+let list: int => array<allergen>

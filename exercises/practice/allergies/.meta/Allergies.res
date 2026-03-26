@@ -25,12 +25,4 @@ let allAllergens = [Eggs, Peanuts, Shellfish, Strawberries, Tomatoes, Chocolate,
 
 let allergicTo = (allergen, score) => allergenToValue(allergen)->Int.bitwiseAnd(score) !== 0
 
-let list = score => {
-  let effectiveScore = mod(score, 256)
-  let filteredAllergens = allAllergens->Array.filter(a => allergicTo(a, effectiveScore))
-  if Array.length(filteredAllergens) === 0 {
-    None
-  } else {
-    Some(filteredAllergens)
-  }
-}
+let list = score => allAllergens->Array.filter(a => allergicTo(a, mod(score, 256)))
