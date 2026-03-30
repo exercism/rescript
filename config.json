@@ -244,6 +244,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 4
+      },
+      {
+        "slug": "change",
+        "name": "Change",
+        "uuid": "12eb71ba-b6d0-4edf-af8f-8dbe195d1f27",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
       }
     ]
   },
