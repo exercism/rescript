@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "therealowenrees"
+  ],
+  "files": {
+    "solution": [
+      "src/RomanNumerals.res",
+      "src/RomanNumerals.resi"
+    ],
+    "test": [
+      "tests/RomanNumerals_test.res"
+    ],
+    "example": [
+      ".meta/RomanNumerals.res",
+      ".meta/RomanNumerals.resi"
+    ]
+  },
+  "blurb": "Convert modern Arabic numbers into Roman numerals.",
+  "source": "The Roman Numeral Kata",
+  "source_url": "https://codingdojo.org/kata/RomanNumerals/"
+}

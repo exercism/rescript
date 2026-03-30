@@ -158,6 +158,14 @@
         "difficulty": 2
       },
       {
+        "slug": "roman-numerals",
+        "name": "Roman Numerals",
+        "uuid": "11463a13-d10e-4a06-9063-977266ad706e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "rotational-cipher",
         "name": "Rotational Cipher",
         "uuid": "cded5ece-7de3-4599-b5c6-2f48e6ed6c83",
