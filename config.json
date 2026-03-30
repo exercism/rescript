@@ -150,6 +150,14 @@
         "difficulty": 3
       },
       {
+        "slug": "rna-transcription",
+        "name": "RNA Transcription",
+        "uuid": "ae2cde1b-f9e7-4473-88f8-484c3f4349f8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "rotational-cipher",
         "name": "Rotational Cipher",
         "uuid": "cded5ece-7de3-4599-b5c6-2f48e6ed6c83",
