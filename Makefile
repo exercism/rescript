@@ -7,6 +7,9 @@ OUTDIR ?= "tmp"
 # Define the files you want to ensure are synced across all exercises
 FILES_TO_CHECK = package.json package-lock.json rescript.json .gitignore LICENSE
 
+# Camel to Pascal case utility
+TO_PASCAL = $(shell echo "$(1)" | sed -E 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($$i,1,1)),$$i)}1' | sed 's/ //g')
+
 # check all exercise files that need to be in sync
 check-exercise-files:
 	@for exercise in $(EXERCISES); do \
@@ -112,6 +115,12 @@ endif
 	@echo "-> Running template: test_templates/$(PASCAL_EXERCISE)_template.res.js"
 	@node test_templates/$(PASCAL_EXERCISE)_template.res.js || exit 1
 	npm run res:format-fix
+
+# Test a single exercise - e.g. make test-one EXERCISE=eliuds-eggs
+test-one:
+	$(MAKE) -s check-exercise-files
+	$(MAKE) -s copy-all-exercises
+	npm run test:only -- tmp/tests/$(call TO_PASCAL,$(EXERCISE))_test.res.js
 
 test:
 	$(MAKE) -s clean
