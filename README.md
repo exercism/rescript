@@ -36,11 +36,18 @@ npm run test
 ## Coding Style
 
 Use `PascalCase.res` for Reason implementation file names.
-A ReScript interface file (`.resi`) should be included with every exercise to help the user get started.
+A ReScript [interface file][rescript-interface-file-link] (`.resi`) should be included with every exercise to help the user get started.
+For example:
+
+```shell
+# exercises/practice/<exercise-name>/.meta/Example.resi
+let add: (int, int) => int
+```
 
 Run `make format` on your code before pushing.
 
-If you are using VS Code, install the official [ReScript VS Code extension](https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode) for syntax highlighting and code formatting.
+If you are using VS Code, install the official [ReScript VS Code extension](https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode) for syntax highlighting and code formatting. Unofficial plugins exist for JetBrains products.
+Terminal based text editors often work with the [ReScript Language Server][rescript-language-server-link] installed. Refer to the documentation of your text editor / IDE for further instructions
 
 ## Adding Exercises
 
@@ -60,7 +67,7 @@ Now complete the following steps:
 - `config.json` - ensure that the new exercise data is correctly placed in order of difficulty and then alphabetically within that difficulty rating.
 - implement exercise test cases, detailed in the [testing](#testing) section below.
 - `exercises/practice/<exercise-slug>/.meta/<exercise-name>.res` - write an example of code here that will pass all test cases. This does not need to be the finest example of how to complete this exercise, but it must pass all the test cases. Update the interface file with the exposed function signatures in the `.resi` file.
-- `exercises/practice/<exercise-slug>/wrc/<exercise-name>.res` - create an exercise stub here which returns `panic("'<function-name>' has not been implemented")`. Update the interface file with the function signatures, so that the student has a reference to what names and types are used.
+- `exercises/practice/<exercise-slug>/src/<exercise-name>.res` - create an exercise stub here which returns `panic("'<function-name>' has not been implemented")`. Update the interface file with the function signatures, so that the student has a reference to what names and types are used.
 
 ## Testing
 
@@ -72,7 +79,7 @@ Tests are written using [rescript-test](https://bloodyowl.github.io/rescript-tes
   - common assertions with comparator functions are located at `test_generator/assertions.js`. Pass the required ones into the `assertionFunctions` array.
   - edit the `template` function so that it will generate the test cases. The `c` variable refers to a test case in `problem-specifications/exercises/<exercise-slug>/canonical-data.json`. Look at other exercise test templates for inspiration.
 
-Run all exercise tests:
+Run all exercise's tests:
 
 ```shell
 make test
@@ -80,7 +87,7 @@ make test
 
 This command will iterate over all exercises and check to see if their example implementation passes all the tests.
 
-To test that all exercises will pass in the CI/CD environment, run:
+To test that the example solution will pass the test suite, run:
 
 ```shell
 ./bin/verify-exercises
@@ -152,3 +159,5 @@ If you find this documentation is inaccurate or incomplete, or can be improved i
 [exercism-pr-docs-link]: https://exercism.org/docs/building/github/contributors-pull-request-guide
 [exercism-contributing-docs-link]: https://exercism.org/docs/building
 [exercism-problem-specifications-link]: https://github.com/exercism/problem-specifications
+[rescript-language-server-link]: https://www.npmjs.com/package/@rescript/language-server
+[rescript-interface-file-link]: https://rescript-lang.org/docs/manual/module#every-resi-file-is-a-signature
