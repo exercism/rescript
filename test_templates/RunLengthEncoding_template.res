@@ -2,20 +2,20 @@ open Node
 
 let slug = fileURLToPath(%raw(`import.meta.url`))->basename->Utils.filenameToSlug
 
-// REMOVE WHEN IMPLEMENTING TEST
-panic("test not yet implemented")
+let template = (case: GetCases.case) => {
+  let input = Utils.getTestCaseInput(case, "string")
 
-// UNCOMMENT CODE BELOW AND EDIT WITH YOUR TEST TEMPLATE
-// let template = (case: GetCases.case) => {
-//   let expectedStr = JSON.stringify(case.expected)
-//   let input = Utils.getTestCaseInput(case, "phrase")
+  let actual = switch case.property {
+  | "consistency" => `${input}->encode->decode`
+  | prop => `${prop}(${input})`
+  }
 
-// EDIT THIS WITH YOUR ASSERTIONS (use genAssert... name to generate an assertion in the template)
-//   AssertionGenerators(
-//     ~message=case.description,
-//     ~actual=`functionName(${input})`,
-//     ~expected=expectedStr,
-//   )
-// }
+  let expected = switch case.property {
+  | "consistency" => input
+  | _ => case.expected->JSON.stringify
+  }
 
-// TestGenerator.generateTests(slug, template, [Equal])
+  AssertionGenerators.equal(~message=case.description, ~actual, ~expected)
+}
+
+TestGenerator.generateTests(slug, template, [Equal])
