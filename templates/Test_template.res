@@ -11,7 +11,7 @@ panic("test not yet implemented")
 //   let input = Utils.getTestCaseInput(case, "phrase")
 
 // EDIT THIS WITH YOUR ASSERTIONS (use genAssert... name to generate an assertion in the template)
-//   AssertionGenerators(
+//   AssertionGenerators.equal(
 //     ~message=case.description,
 //     ~actual=`functionName(${input})`,
 //     ~expected=expectedStr,
