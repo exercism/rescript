@@ -1,1 +1,8 @@
-TODO: add snippet
+let rec fibonacci = n =>
+  switch n {
+  | 0 => 0
+  | 1 => 1
+  | n => fibonacci(n - 1) + fibonacci(n - 2)
+  }
+
+let first10 = Array.fromInitializer(~length=10, fibonacci)
