@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Synopsis:
+# Check that test suites are in sync with their current templates.
+
+set -euo pipefail
+
+npm run res:build
+make generate-tests
+
+if [[ -n "$(git status --porcelain -- exercises/practice)" ]]; then
+  echo "::error:: Generated test template output does not match committed test output."
+  git status --short -- exercises/practice
+  git diff -- exercises/practice
+  exit 1
+fi
+
+echo "Generated test template output matches committed test output."
