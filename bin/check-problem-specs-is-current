@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Synopsis:
+# Verify that the problem-specifications submodule is up-to-date with the latest upstream commit.
+
+set -euo pipefail
+
+latest_commit="$(git ls-remote https://github.com/exercism/problem-specifications.git refs/heads/main | cut -f1)"
+
+if [[ -z "$latest_commit" ]]; then
+  echo "::error:: Could not determine latest upstream problem-specifications commit."
+  exit 1
+fi
+
+current_commit="$(git rev-parse HEAD:problem-specifications)"
+
+if [[ "$current_commit" != "$latest_commit" ]]; then
+  echo "::error:: The problem-specifications submodule is out of date. Update it to ${latest_commit}."
+  exit 1
+fi
+
+echo "The problem-specifications submodule is current at ${current_commit}."

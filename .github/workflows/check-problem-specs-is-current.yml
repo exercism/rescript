@@ -1,0 +1,21 @@
+name: Check Problem Specifications is Current
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check_problem_specifications:
+    name: Check problem specifications
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Check problem-specifications is current
+        run: bin/check-problem-specs-is-current
