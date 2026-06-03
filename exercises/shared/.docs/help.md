@@ -2,7 +2,10 @@
 
 ## Useful resources
 
-- [ReScript Language Manual](https://rescript-lang.org/docs/manual/introduction) — full language reference
-- [ReScript API](https://rescript-lang.org/docs/manual/latest/api) — standard library documentation
-- [ReScript Discord](https://rescript-lang.org/community#discord) - the official Discord server
-- [ReScript Forum](https://forum.rescript-lang.org/) — the official discussion forum
+- [ReScript Language Manual][language-manual]
+- [ReScript for JavaScript Developers][rescript-for-js]
+- [ReScript Forums][rescript-forums]
+
+[language-manual]: https://rescript-lang.org/docs/manual/introduction
+[rescript-for-js]: https://rescript-lang.org/docs/manual/rescript-for-javascript-developers
+[rescript-forums]: https://forum.rescript-lang.org
