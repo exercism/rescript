@@ -7,7 +7,7 @@ Exercism exercises in ReScript.
 
 ## Installation
 
-Track exercises target [ReScript] 12.2.0 using the [ReScript Test][ReScriptTest] testing framework on [Node.js] 22+. If you're contributing to the track, you will also need [make](https://www.gnu.org/software/make/).
+Track exercises target [ReScript] 12.2.0 using the [ReScript Test][ReScriptTest] testing framework on [Node.js] 22+. If you're contributing to the track, you will also need [make].
 
 ### Setting up the development environment
 
@@ -56,7 +56,7 @@ Now complete the following steps:
 
 ## Testing
 
-Tests are written using [rescript-test](https://bloodyowl.github.io/rescript-test/). There is a test templating system in place to reduce the amount of work needed by a developer. Follow these steps when writing tests:
+Tests are written using [rescript-test][ReScriptTest]. There is a test templating system in place to reduce the amount of work needed by a developer. Follow these steps when writing tests:
 
 - `exercises/practice/<exercise-slug>/.meta/tests.toml` - if any of these test cases are not relevant to the language, add `ignore = true` on a newline below the description
 - `exercises/practice/<exercise-slug>/.meta/testTemplate.js` - edit this file to allow the test generator to automatically create test files.
@@ -88,11 +88,11 @@ A ReScript interface file (`.resi`) should be included with every exercise to he
 
 Run `make format` on your code before pushing.
 
-If you are using VS Code, install the official [ReScript VS Code extension](https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode) for syntax highlighting and code formatting.
+If you are using VS Code, install the official [ReScript VS Code extension][rescript-vs-code-extension] for syntax highlighting and code formatting.
 
 ## Linting & Formatting
 
-[`configlet`](https://exercism.org/docs/building/configlet) is an Exercism-wide tool for working with tracks. You can download it by running:
+[`configlet`][configlet] is an Exercism-wide tool for working with tracks. You can download it by running:
 
 ```shell
 ./bin/fetch-configlet
@@ -141,3 +141,6 @@ If you find this documentation is inaccurate or incomplete, or can be improved i
 [exercism-pr-docs-link]: https://exercism.org/docs/building/github/contributors-pull-request-guide
 [exercism-contributing-docs-link]: https://exercism.org/docs/building
 [exercism-problem-specifications-link]: https://github.com/exercism/problem-specifications
+[configlet]: https://exercism.org/docs/building/configlet
+[make]: https://www.gnu.org/software/make/
+[rescript-vs-code-extension]: https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode
