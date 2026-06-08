@@ -83,7 +83,7 @@ To test that all exercises will pass in the CI/CD environment, run:
 
 ## Coding Style
 
-Use `PascalCase.res` for Reason implementation file names.
+Use `PascalCase.res` for ReScript implementation file names.
 A ReScript interface file (`.resi`) should be included with every exercise to help the user get started.
 
 Run `make format` on your code before pushing.
