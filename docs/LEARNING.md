@@ -1,13 +1,21 @@
 # Learning
 
-<!-- TODO: write document
+## ReScript Resources
 
-  This document should link to learning resources.
+- [ReScript Language Manual][language-manual]
+- [ReScript for JavaScript Developers][rescript-for-js]
+- [ReScript Forums][rescript-forums]
+- [ReScript Playground][rescript-playground]
+- [ReScript Community Content][community-content]
 
-  Feel free to link to any good learning resources you know, whether they
-  be websites, blogs, books, videos or courses.
+## Coming from other languages
 
-  The contents of this document are displayed on the track's documentation
-  page at `https://exercism.org/docs/tracks/<track>/learning`.
+If you know **JavaScript or TypeScript**, ReScript's syntax will look familiar.
 
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+If you know **OCaml**, ReScript shares the same type system and many of the same concepts.
+
+[language-manual]: https://rescript-lang.org/docs/manual/introduction
+[rescript-for-js]: https://rescript-lang.org/docs/manual/rescript-for-javascript-developers
+[rescript-forums]: https://forum.rescript-lang.org
+[rescript-playground]: https://rescript-lang.org/try
+[community-content]: https://rescript-lang.org/community/content/

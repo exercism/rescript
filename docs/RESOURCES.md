@@ -1,13 +1,13 @@
 # Resources
 
-<!-- TODO: write document
+- [ReScript Language Manual][language-manual]
+- [Awesome ReScript][awesome-rescript]
+- [ReScript Forums][rescript-forums]
+- [ReScript Playground][rescript-playground]
+- [ReScript Community Content][community-content]
 
-  This document should link to useful resources.
-
-  Feel free to link to any good resources you know, whether they
-  be websites, videos, mailing lists, etc.
-
-  The contents of this document are displayed on the track's documentation
-  page at `https://exercism.org/docs/tracks/<track>/resources`.
-
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+[language-manual]: https://rescript-lang.org/docs/manual/introduction
+[awesome-rescript]: https://github.com/rescript-lang/awesome-rescript
+[rescript-forums]: https://forum.rescript-lang.org
+[rescript-playground]: https://rescript-lang.org/try
+[community-content]: https://rescript-lang.org/community/content/

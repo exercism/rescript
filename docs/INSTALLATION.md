@@ -1,15 +1,31 @@
 # Installation
 
-<!-- TODO: write document
+This track uses ReScript 12 and relies on [Node.js][nodejs] 22 or greater.
+Many systems will have this pre-installed or you may have previously installed it for another track.
 
-  This document should describe what the student needs to install
-  to allow working on the track on their local system using the CLI.
+Open a terminal and run:
 
-  You can include the installation instructions in this document, but
-  usually it is better to link to a resource with the official installation
-  instructions, to prevent the instructions from becoming outdated.
+```sh
+node -v
+```
 
-  The contents of this document are displayed on the track's documentation
-  page at `https://exercism.org/docs/tracks/<track>/installation`.
+If Node isn't installed or an older version is listed, please follow [the official Node.js installation][nodejs-install] instructions for your platform.
 
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+## Installing dependencies
+
+Each ReScript exercise is a self-contained npm project.
+After downloading an exercise with the [Exercism CLI][exercism-cli], install the project dependencies including ReScript and you're ready to go:
+
+```sh
+cd /path/to/exercise
+npm install
+```
+
+## Editor support
+
+The ReScript Project maintains a [list of both official and community-supported editor plugins][rescript-plugins].
+
+[nodejs]: https://nodejs.org/
+[nodejs-install]: https://nodejs.org/en/download
+[exercism-cli]: https://github.com/exercism/cli
+[rescript-plugins]: https://rescript-lang.org/docs/manual/editor-plugins

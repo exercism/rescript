@@ -1,14 +1,8 @@
 # About
 
-<!-- TODO: write document
+Write [ReScript][rescript-lang], ship JavaScript.
+Built on OCaml's robust type system and the modern successor to BuckleScript and ReasonML, ReScript offers exhaustive pattern matching and compile-time guarantees within the JavaScript ecosystem.
+Its first-class React integration makes it a compelling alternative to TypeScript for developers who want genuine type safety rather than annotated JavaScript.
+No `any`, no surprise `undefined`.
 
-  This document contains a short introduction to the language.
-
-  The introduction should be relatively brief and touch upon what
-  makes the language interesting (and possibly unique). The goal
-  is to help students decide if they want to join this track.
-
-  The contents of this document are displayed on the track page,
-  provided the student has not joined the track.
-
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+[rescript-lang]: https://rescript-lang.org

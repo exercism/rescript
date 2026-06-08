@@ -206,17 +206,17 @@
         "difficulty": 2
       },
       {
-        "slug": "allergies",
-        "name": "Allergies",
-        "uuid": "dac0e2f8-5ae9-4f06-b9a1-3afe1d44297a",
+        "slug": "all-your-base",
+        "name": "All Your Base",
+        "uuid": "a8eaf0dc-c5ff-46a2-9c47-86f738909db9",
         "practices": [],
         "prerequisites": [],
         "difficulty": 4
       },
       {
-        "slug": "all-your-base",
-        "name": "All Your Base",
-        "uuid": "a8eaf0dc-c5ff-46a2-9c47-86f738909db9",
+        "slug": "allergies",
+        "name": "Allergies",
+        "uuid": "dac0e2f8-5ae9-4f06-b9a1-3afe1d44297a",
         "practices": [],
         "prerequisites": [],
         "difficulty": 4
@@ -230,12 +230,28 @@
         "difficulty": 4
       },
       {
+        "slug": "change",
+        "name": "Change",
+        "uuid": "12eb71ba-b6d0-4edf-af8f-8dbe195d1f27",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "eliuds-eggs",
         "name": "Eliud's Eggs",
         "uuid": "6762991b-07e1-4cef-969a-a84e1b44e866",
         "practices": [],
         "prerequisites": [],
         "difficulty": 4
+      },
+      {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "1b636fca-bd18-4f54-b4d2-4f5cce1352a9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
       },
       {
         "slug": "phone-number",
@@ -262,36 +278,20 @@
         "difficulty": 4
       },
       {
-        "slug": "word-count",
-        "name": "Word Count",
-        "uuid": "37104504-e817-4164-9379-c71b81ecd44c",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4
-      },
-      {
-        "slug": "change",
-        "name": "Change",
-        "uuid": "12eb71ba-b6d0-4edf-af8f-8dbe195d1f27",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 5
-      },
-      {
-        "slug": "flower-field",
-        "name": "Flower Field",
-        "uuid": "1b636fca-bd18-4f54-b4d2-4f5cce1352a9",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 5
-      },
-      {
         "slug": "run-length-encoding",
         "name": "Run-Length Encoding",
         "uuid": "e2838aa6-284d-4dc2-9f9e-a81e3c275fb6",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
+      },
+      {
+        "slug": "word-count",
+        "name": "Word Count",
+        "uuid": "37104504-e817-4164-9379-c71b81ecd44c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
       }
     ]
   },
