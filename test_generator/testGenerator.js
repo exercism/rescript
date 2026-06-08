@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import getValidCases from './getCases.js';
+import { getValidCases } from './GetCases.res.js';
 
 export const generateTests = (dir, slug, assertionFunctions, template) => {
     const outputPath = path.resolve(dir, '..', 'tests', `${toPascalCase(slug)}_test.res`);
@@ -13,6 +13,7 @@ const toPascalCase = (slug) =>
 
 const generate = (outputPath, slug, cases, assertionFunctions, template) => {
   const moduleName = toPascalCase(slug);
+  const lastCaseIndex = cases.length - 1
   
   let output = `open Test
 open ${moduleName}\n\n`;
@@ -21,10 +22,10 @@ open ${moduleName}\n\n`;
     output += assertionFunctions.map(fn => fn.trim()).join('\n\n') + '\n\n';
   }
 
-  cases.forEach((c) => {
+  cases.forEach((c, index) => {
     output += `test("${c.description}", () => {
   ${template(c)}
-})\n\n`
+})${index === lastCaseIndex ? "\n" : "\n\n"}`
   });
 
   if (!fs.existsSync(path.dirname(outputPath))) {

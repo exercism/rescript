@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "BNAndras"
+  ],
+  "files": {
+    "solution": [
+      "src/Strain.res",
+      "src/Strain.resi"
+    ],
+    "test": [
+      "tests/Strain_test.res"
+    ],
+    "example": [
+      ".meta/Strain.res",
+      ".meta/Strain.resi"
+    ]
+  },
+  "blurb": "Implement the `keep` and `discard` operation on collections.",
+  "source": "Conversation with James Edward Gray II",
+  "source_url": "http://graysoftinc.com/"
+}

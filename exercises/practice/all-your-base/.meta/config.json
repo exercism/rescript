@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "therealowenrees"
+  ],
+  "files": {
+    "solution": [
+      "src/AllYourBase.res",
+      "src/AllYourBase.resi"
+    ],
+    "test": [
+      "tests/AllYourBase_test.res"
+    ],
+    "example": [
+      ".meta/AllYourBase.res",
+      ".meta/AllYourBase.resi"
+    ]
+  },
+  "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base."
+}

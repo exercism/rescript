@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "BNAndras"
+  ],
+  "files": {
+    "solution": [
+      "src/RotationalCipher.res",
+      "src/RotationalCipher.resi"
+    ],
+    "test": [
+      "tests/RotationalCipher_test.res"
+    ],
+    "example": [
+      ".meta/RotationalCipher.res",
+      ".meta/RotationalCipher.resi"
+    ]
+  },
+  "blurb": "Create an implementation of the rotational cipher, also sometimes called the Caesar cipher.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Caesar_cipher"
+}

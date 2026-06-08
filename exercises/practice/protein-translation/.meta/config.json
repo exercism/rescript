@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "therealowenrees"
+  ],
+  "files": {
+    "solution": [
+      "src/ProteinTranslation.res",
+      "src/ProteinTranslation.resi"
+    ],
+    "test": [
+      "tests/ProteinTranslation_test.res"
+    ],
+    "example": [
+      ".meta/ProteinTranslation.res",
+      ".meta/ProteinTranslation.resi"
+    ]
+  },
+  "blurb": "Translate RNA sequences into proteins.",
+  "source": "Tyler Long"
+}

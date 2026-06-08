@@ -1,0 +1,23 @@
+{
+  "authors": [
+    "therealowenrees"
+  ],
+  "files": {
+    "solution": [
+      "src/Leap.res"
+    ],
+    "test": [
+      "tests/Leap_test.res"
+    ],
+    "example": [
+      ".meta/Leap.res",
+      ".meta/Leap.resi"
+    ],
+    "editor": [
+      "src/Leap.resi"
+    ]
+  },
+  "blurb": "Determine whether a given year is a leap year.",
+  "source": "CodeRanch Cattle Drive, Assignment 3",
+  "source_url": "https://web.archive.org/web/20240907033714/https://coderanch.com/t/718816/Leap"
+}

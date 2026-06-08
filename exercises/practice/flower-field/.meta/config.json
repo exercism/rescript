@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "therealowenrees"
+  ],
+  "files": {
+    "solution": [
+      "src/FlowerField.res",
+      "src/FlowerField.resi"
+    ],
+    "test": [
+      "tests/FlowerField_test.res"
+    ],
+    "example": [
+      ".meta/FlowerField.res",
+      ".meta/FlowerField.resi"
+    ]
+  },
+  "blurb": "Mark all the flowers in a garden."
+}

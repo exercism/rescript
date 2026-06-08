@@ -2,7 +2,9 @@
   "name": "@exercism/rescript",
   "sources": [
     { "dir": "tmp/src", "subdirs": true, "type": "dev" },
-    { "dir": "tmp/tests", "subdirs": true, "type": "dev" }
+    { "dir": "tmp/tests", "subdirs": true, "type": "dev" },
+    { "dir": "test_generator", "subdirs": true, "type": "dev" },
+    { "dir": "test_templates", "subdirs": true, "type": "dev" }
   ],
   "package-specs": [
     {

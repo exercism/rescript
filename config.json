@@ -20,19 +20,19 @@
   },
   "files": {
     "solution": [
-      "src/%{pascal_slug}.res"
+      "src/%{pascal_slug}.res",
+      "src/%{pascal_slug}.resi"
     ],
     "test": [
       "tests/%{pascal_slug}_test.res"
     ],
     "example": [
-      ".meta/%{pascal_slug}.res"
+      ".meta/%{pascal_slug}.res",
+      ".meta/%{pascal_slug}.resi"
     ],
     "exemplar": [
-      ".meta/src/%{pascal_slug}.res"
-    ],
-    "editor": [
-      "src/%{pascal_slug}.resi"
+      ".meta/src/%{pascal_slug}.res",
+      ".meta/src/%{pascal_slug}.resi"
     ]
   },
   "exercises": {
@@ -46,9 +46,97 @@
         "difficulty": 1
       },
       {
-        "slug": "two-fer",
-        "name": "Two-Fer",
-        "uuid": "2a03dbf7-5aae-4859-8fde-b51c11cab02f",
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "175a3fc7-2d00-4d42-b4a5-4e8d894603d9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "anagram",
+        "name": "Anagram",
+        "uuid": "6c2eca3e-c286-403f-8419-06473223618b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "armstrong-numbers",
+        "name": "Armstrong Numbers",
+        "uuid": "618bde52-73d2-4688-afd9-599f733ed05d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "atbash-cipher",
+        "name": "Atbash Cipher",
+        "uuid": "b9fab8ca-d97f-441a-9a69-47cab23f4f7d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "bob",
+        "name": "Bob",
+        "uuid": "34944768-f3fe-4e64-800a-69d0a0ed9f55",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "difference-of-squares",
+        "name": "Difference of Squares",
+        "uuid": "f35e2ea8-b675-432a-87b1-e5c23ae4dd0f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "isogram",
+        "name": "Isogram",
+        "uuid": "7cf8a5d3-2b4e-4f9d-bd01-9badc2dc82e5",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "leap",
+        "name": "Leap",
+        "uuid": "473f85b9-c74e-4c6f-91a0-003b370bff5c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "matching-brackets",
+        "name": "Matching Brackets",
+        "uuid": "85c3f842-2199-4c22-a65b-1d65a46461e7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "pangram",
+        "name": "Pangram",
+        "uuid": "ed0c465d-3561-464d-80ed-6541b2ec9410",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "raindrops",
+        "name": "Raindrops",
+        "uuid": "272561cb-886b-483f-8db7-cf1c6149baeb",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "resistor-color",
+        "name": "Resistor Color",
+        "uuid": "b3a20fd8-72ef-4adf-a2d7-f47c669caa69",
         "practices": [],
         "prerequisites": [],
         "difficulty": 2
@@ -60,6 +148,150 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 2
+      },
+      {
+        "slug": "resistor-color-trio",
+        "name": "Resistor Color Trio",
+        "uuid": "71902b8b-1b8e-4980-8d7f-1c3f9a9f6cc3",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "rna-transcription",
+        "name": "RNA Transcription",
+        "uuid": "ae2cde1b-f9e7-4473-88f8-484c3f4349f8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "roman-numerals",
+        "name": "Roman Numerals",
+        "uuid": "11463a13-d10e-4a06-9063-977266ad706e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "rotational-cipher",
+        "name": "Rotational Cipher",
+        "uuid": "cded5ece-7de3-4599-b5c6-2f48e6ed6c83",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "space-age",
+        "name": "Space Age",
+        "uuid": "addd0202-4207-492d-8f7a-56b7be8d06b2",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "strain",
+        "name": "Strain",
+        "uuid": "0e11b69e-9339-4f06-9626-ab7c96f66bce",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "two-fer",
+        "name": "Two-Fer",
+        "uuid": "2a03dbf7-5aae-4859-8fde-b51c11cab02f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "allergies",
+        "name": "Allergies",
+        "uuid": "dac0e2f8-5ae9-4f06-b9a1-3afe1d44297a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "all-your-base",
+        "name": "All Your Base",
+        "uuid": "a8eaf0dc-c5ff-46a2-9c47-86f738909db9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "binary-search",
+        "name": "Binary Search",
+        "uuid": "75286043-b11b-4653-bfe8-6854ef9fac23",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "eliuds-eggs",
+        "name": "Eliud's Eggs",
+        "uuid": "6762991b-07e1-4cef-969a-a84e1b44e866",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "phone-number",
+        "name": "Phone Number",
+        "uuid": "06a94d23-74e6-4cef-bf3a-2c9a381049f9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "prism",
+        "name": "Prism",
+        "uuid": "e93dea1f-74c5-442d-a8eb-5b82311d00e5",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "protein-translation",
+        "name": "Protein Translation",
+        "uuid": "5d9917ca-8c09-431f-b5dd-71a338b9b497",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "word-count",
+        "name": "Word Count",
+        "uuid": "37104504-e817-4164-9379-c71b81ecd44c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "change",
+        "name": "Change",
+        "uuid": "12eb71ba-b6d0-4edf-af8f-8dbe195d1f27",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "1b636fca-bd18-4f54-b4d2-4f5cce1352a9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "run-length-encoding",
+        "name": "Run-Length Encoding",
+        "uuid": "e2838aa6-284d-4dc2-9f9e-a81e3c275fb6",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
       }
     ]
   },

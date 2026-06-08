@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "therealowenrees"
+  ],
+  "files": {
+    "solution": [
+      "src/MatchingBrackets.res",
+      "src/MatchingBrackets.resi"
+    ],
+    "test": [
+      "tests/MatchingBrackets_test.res"
+    ],
+    "example": [
+      ".meta/MatchingBrackets.res",
+      ".meta/MatchingBrackets.resi"
+    ]
+  },
+  "blurb": "Make sure the brackets and braces all match.",
+  "source": "Ginna Baker"
+}

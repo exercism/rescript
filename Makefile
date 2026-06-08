@@ -5,7 +5,10 @@ EXERCISES = $(shell find ./exercises/practice -maxdepth 1 -mindepth 1 -type d | 
 OUTDIR ?= "tmp"
 
 # Define the files you want to ensure are synced across all exercises
-FILES_TO_CHECK = package.json package-lock.json rescript.json .gitignore LICENSE .meta/testTemplate.js
+FILES_TO_CHECK = package.json package-lock.json rescript.json .gitignore LICENSE
+
+# Camel to Pascal case utility
+TO_PASCAL = $(shell echo "$(1)" | sed -E 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($$i,1,1)),$$i)}1' | sed 's/ //g')
 
 # check all exercise files that need to be in sync
 check-exercise-files:
@@ -15,9 +18,7 @@ check-exercise-files:
 			target="exercises/practice/$$exercise/$$file"; \
 			\
 			# Map the source template path \
-			if [ "$$file" = ".meta/testTemplate.js" ]; then \
-				source="./templates/testTemplate.js"; \
-			elif [ -f "./templates/$$file" ]; then \
+			if [ -f "./templates/$$file" ]; then \
 				source="./templates/$$file"; \
 			else \
 				source="./$$file"; \
@@ -30,14 +31,21 @@ check-exercise-files:
 			fi; \
 			\
 			# 2. Check if the content matches (ignoring name/version) \
-			diff -q -I '"name":' -I '"version":' "$$source" "$$target" > /dev/null || { \
-				echo "ERROR: $$target does not match template $$source."; \
-				diff -u -I '"name":' -I '"version":' "$$source" "$$target" | head -n 20; \
-				exit 1; \
-			}; \
+			if [ "$$file" != ".meta/testTemplate.js" ]; then \
+				diff -q -I '"name":' -I '"version":' "$$source" "$$target" > /dev/null || { \
+					echo "ERROR: $$target does not match template $$source."; \
+					diff -u -I '"name":' -I '"version":' "$$source" "$$target" | head -n 20; \
+					exit 1; \
+				}; \
+			fi; \
 		done; \
 	done
 	@echo "All exercises contain all required files and are in sync."
+
+add-test-template:
+	@$(eval PASCAL_EXERCISE=$(shell echo $(EXERCISE) | sed -r 's/(^|-)([a-z])/\U\2/g'))
+	@cp templates/Test_template.res test_templates/$(PASCAL_EXERCISE)_template.res
+	@echo "Copied $(PASCAL_EXERCISE)Template.res to $(EXERCISE)"
 
 # copy all relevant files for a single exercise - test template, config etc.
 copy-exercise-files:
@@ -46,7 +54,6 @@ copy-exercise-files:
 	@cp templates/rescript.json exercises/practice/$(EXERCISE)/rescript.json
 	@cp templates/.gitignore exercises/practice/$(EXERCISE)/.gitignore
 	@cp LICENSE exercises/practice/$(EXERCISE)/LICENSE
-	@cp templates/testTemplate.js exercises/practice/$(EXERCISE)/.meta/testTemplate.js
 
 # sync all files for each exercise directory
 sync-exercise-files:
@@ -58,6 +65,7 @@ copy-exercise:
 	if [ -f exercises/practice/$(EXERCISE)/src/*.res ]; then \
 		echo "Copying $(EXERCISE)"; \
         	cp exercises/practice/$(EXERCISE)/.meta/*.res $(OUTDIR)/src/; \
+			cp exercises/practice/$(EXERCISE)/.meta/*.resi $(OUTDIR)/src/; \
         	cp exercises/practice/$(EXERCISE)/tests/*.res $(OUTDIR)/tests/; \
 	fi
 
@@ -80,23 +88,39 @@ format:
 
 # Generate tests for all exercises
 generate-tests:
-	@echo "Generating tests for all exercises..."
-	@for exercise in $(EXERCISES); do \
-		if [ -f exercises/practice/$$exercise/.meta/testTemplate.js ]; then \
-			echo "-> Generating: $$exercise"; \
-			node exercises/practice/$$exercise/.meta/testTemplate.js || exit 1; \
-		else \
-			echo "-> Skipping: $$exercise (no generator found)"; \
-		fi \
+	@echo "Generating tests from test_templates directory..."
+	@for template in $(wildcard test_templates/*_template.res.js); do \
+		echo "-> Running template: $$template"; \
+		node $$template || exit 1; \
 	done
-	@echo "All tests generated successfully."
+	@echo "Formatting files"
+	npm run res:format-fix
+	@echo "All tests generated and formatted successfully."
 
-# Generate test for exercise 
+# Generate test for exercise
 generate-test:
-ifeq ($(EXERCISE),"")
-	$(error EXERCISE variable is required. usage: make generate_test EXERCISE=hello-world)
+ifeq ($(EXERCISE),)
+	$(error EXERCISE variable is required. usage: make generate-test EXERCISE=hello-world)
 endif
-	@node exercises/practice/$(EXERCISE)/.meta/generateTests.js
+	@# 1. Replace hyphens/underscores with spaces 
+	@# 2. Capitalize first letter of every word
+	@# 3. Remove spaces
+	$(eval PASCAL_EXERCISE=$(shell echo "$(EXERCISE)" | sed -E 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($$i,1,1)),$$i)}1' | sed 's/ //g'))
+	
+	@if [ ! -f "test_templates/$(PASCAL_EXERCISE)_template.res.js" ]; then \
+		echo "Error: Template 'test_templates/$(PASCAL_EXERCISE)_template.res.js' not found (converted from '$(EXERCISE)')"; \
+		exit 1; \
+	fi
+	
+	@echo "-> Running template: test_templates/$(PASCAL_EXERCISE)_template.res.js"
+	@node test_templates/$(PASCAL_EXERCISE)_template.res.js || exit 1
+	npm run res:format-fix
+
+# Test a single exercise - e.g. make test-one EXERCISE=eliuds-eggs
+test-one:
+	$(MAKE) -s check-exercise-files
+	$(MAKE) -s copy-all-exercises
+	npm run test:only -- tmp/tests/$(call TO_PASCAL,$(EXERCISE))_test.res.js
 
 test:
 	$(MAKE) -s clean

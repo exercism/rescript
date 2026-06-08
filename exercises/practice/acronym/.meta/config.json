@@ -1,0 +1,30 @@
+{
+  "authors": [
+    "gabrielperales",
+    "therealowenrees"
+  ],
+  "contributors": [
+    "benreyn",
+    "naartjie",
+    "ohana54",
+    "stevejb71",
+    "tejasbubane"
+  ],
+  "files": {
+    "solution": [
+      "src/Acronym.res"
+    ],
+    "test": [
+      "tests/Acronym_test.res"
+    ],
+    "example": [
+      ".meta/Acronym.res"
+    ],
+    "editor": [
+      "src/Acronym.resi"
+    ]
+  },
+  "blurb": "Convert a long phrase to its acronym.",
+  "source": "Julien Vanier",
+  "source_url": "https://github.com/monkbroc"
+}

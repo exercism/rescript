@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "therealowenrees"
+  ],
+  "files": {
+    "solution": [
+      "src/Pangram.res",
+      "src/Pangram.resi"
+    ],
+    "test": [
+      "tests/Pangram_test.res"
+    ],
+    "example": [
+      ".meta/Pangram.res",
+      ".meta/Pangram.resi"
+    ]
+  },
+  "blurb": "Determine if a sentence is a pangram.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Pangram"
+}
