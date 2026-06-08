@@ -1,12 +1,13 @@
 # Exercism ReScript Track
 
-[![Configlet](https://github.com/exercism/rescript/actions/workflows/configlet.yml/badge.svg)](https://github.com/exercism/rescript/actions/workflows/configlet.yml) [![Test](https://github.com/exercism/rescript/actions/workflows/test.yml/badge.svg)](https://github.com/exercism/rescript/actions/workflows/test.yml)
+[![Configlet](https://github.com/exercism/rescript/actions/workflows/configlet.yml/badge.svg)](https://github.com/exercism/rescript/actions/workflows/configlet.yml)
+[![Test](https://github.com/exercism/rescript/actions/workflows/test.yml/badge.svg)](https://github.com/exercism/rescript/actions/workflows/test.yml)
 
 Exercism exercises in ReScript.
 
 ## Installation
 
-Track exercises target [Rescript] 12.2.0 using the [ReScript Test][ReScriptTest] testing framework on [Node.js] 22+. If you're contributing to the track, you will also need [make](https://www.gnu.org/software/make/).
+Track exercises target [ReScript] 12.2.0 using the [ReScript Test][ReScriptTest] testing framework on [Node.js] 22+. If you're contributing to the track, you will also need [make](https://www.gnu.org/software/make/).
 
 ### Setting up the development environment
 
@@ -32,15 +33,6 @@ npm run res:start
 # Terminal 2
 npm run test
 ```
-
-## Coding Style
-
-Use `PascalCase.res` for Reason implementation file names.
-A ReScript interface file (`.resi`) should be included with every exercise to help the user get started.
-
-Run `make format` on your code before pushing.
-
-If you are using VS Code, install the official [ReScript VS Code extension](https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode) for syntax highlighting and code formatting.
 
 ## Adding Exercises
 
@@ -89,17 +81,14 @@ To test that all exercises will pass in the CI/CD environment, run:
 ./bin/verify-exercises <exercise-slug>
 ```
 
-<!-- ### Using Docker
+## Coding Style
 
-If your track has a working [test runner](https://exercism.org/docs/building/tooling/test-runners), the `./bin/verify-exercises-in-docker` script can also be used to test all exercises.
-This script pulls (_downloads_) the test runner's [Docker image](https://exercism.org/docs/building/tooling/test-runners/docker) and then uses Docker to run that image to test an exercise.
+Use `PascalCase.res` for Reason implementation file names.
+A ReScript interface file (`.resi`) should be included with every exercise to help the user get started.
 
-```exercism/note
-The main benefit of this approach is that it best mimics how exercises are tested in production (on the website).
-Another benefit is that you don't have to install track-specific dependencies (e.g. an SDK) locally, you just need Docker installed.
-```
+Run `make format` on your code before pushing.
 
-To test a single exercise, run `./bin/verify-exercises-in-docker <exercise-slug>`. -->
+If you are using VS Code, install the official [ReScript VS Code extension](https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode) for syntax highlighting and code formatting.
 
 ## Linting & Formatting
 
