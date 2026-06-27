@@ -22,7 +22,7 @@ To automate the creation of practice exercise tests, our track tooling consumes 
 
 If you have format on save enabled for JSON files, it is recommended to disable this feature. Alternatively save JSON files with `Ctrl+K s` to save without applying formatting rules.
 
-### Running the development environment
+## Running the development environment
 
 Open up two terminals. By running the commands below, files will compile on save and re-run the test suite.
 
@@ -61,10 +61,10 @@ Now complete the following steps:
 Tests are written using [rescript-test][ReScriptTest]. There is a test templating system in place to reduce the amount of work needed by a developer. Follow these steps when writing tests:
 
 - `exercises/practice/<exercise-slug>/.meta/tests.toml` - if any of these test cases are not relevant to the language, add `ignore = true` on a newline below the description
-- `exercises/practice/<exercise-slug>/.meta/testTemplate.js` - edit this file to allow the test generator to automatically create test files.
+- `test_templates/<Exercise>_template.res` - edit this file to allow the test generator to automatically create test files. If this file does not exist, copy `templates/Test_template.res` and rename to match the aforementioned filename.
   - you must write your comparator functions - https://bloodyowl.github.io/rescript-test/assertions.
-  - common assertions with comparator functions are located at `test_generator/assertions.js`. Add the ones you'd like to use to the `assertionFunctions` array.
-  - edit the `template` function so that it will generate the test cases. The `c` variable refers to a test case in `problem-specifications/exercises/<exercise-slug>/canonical-data.json`. Look at other exercise test templates for inspiration.
+  - common assertions with comparator functions are located at `test_generator/Assertions.res`. Add the ones you'd like to use to the `generateTests` function's last argument, eg `TestGenerator.generateTests(slug, template, [DictEqual])`.
+  - edit the `template` function so that it will generate the test cases. The `case` parameter refers to a test case in `problem-specifications/exercises/<exercise-slug>/canonical-data.json`. Refer to other exercise test templates for inspiration.
 
 Run all exercise tests:
 
