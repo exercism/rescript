@@ -104,7 +104,7 @@ Run the [`lint` command][configlet-link-link] to verify if exercises have the re
 ./bin/configlet lint
 ```
 
-Run the [`fmt` command][configlet-fmt-link] to verify if exercises and configuration files are formatted correctly. Address any issues before pushing your changes:
+Run the [`fmt` command][configlet-fmt-link] to verify if the configuration files are formatted correctly. Address any issues before pushing your changes:
 
 ```shell
 ./bin/configlet fmt
@@ -118,17 +118,9 @@ Run the [`fmt` command][configlet-fmt-link] to verify if exercises and configura
 
 If you are auto formatting files, only commit the files relevant to your pull request.
 
-## Pull Requests
-
-Familiarise yourself with the Exercism [documentation][exercism-pr-docs-link] on pull requests.
-
-Make sure your work is commited on a new branch. When you are ready to submit your changes, push your changes to your forked repository and open a pull request on the language track [repository].
-
-More details on how to create pull requests from a fork can be found [here][github-fork-pr-link].
-
 ## Feedback
 
-If you find this documentation is inaccurate or incomplete, or can be improved in any way, please don't hesitate to raise an [issue][issue-link] or submit a pull request.
+If you find this documentation is inaccurate or incomplete, or can be improved in any way, please don't hesitate to create a new topic on the [Exercism Forum][exercism-forum]
 
 [ReScript]: https://rescript-lang.org/
 [ReScriptTest]: https://bloodyowl.github.io/rescript-test/
@@ -144,3 +136,4 @@ If you find this documentation is inaccurate or incomplete, or can be improved i
 [configlet]: https://exercism.org/docs/building/configlet
 [make]: https://www.gnu.org/software/make/
 [rescript-vs-code-extension]: https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode
+[exercism-forum]: https://forum.exercism.org/
