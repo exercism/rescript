@@ -49,10 +49,12 @@ bin/add-practice-exercise -a foobar -d 3 <exercise-slug>
 
 Now complete the following steps:
 
-- `config.json` - ensure that the new exercise data is correctly placed in order of difficulty and then alphabetically within that difficulty rating.
-- implement exercise test cases, detailed in the [testing](#testing) section below.
-- `exercises/practice/<exercise-slug>/.meta/<exercise-name>.res` - write an example of code here that will pass all test cases. This does not need to be the finest example of how to complete this exercise, but it must pass all the test cases. Update the interface file with the exposed function signatures in the `.resi` file.
-- `exercises/practice/<exercise-slug>/wrc/<exercise-name>.res` - create an exercise stub here which returns `panic("'<function-name>' has not been implemented")`. Update the interface file with the function signatures, so that the student has a reference to what names and types are used.
+- Ensure that the new exercise data is correctly placed in order of difficulty and then alphabetically within that difficulty rating - `config.json`
+- Implement exercise test cases, detailed in the [testing](#testing) section below - `templates/Test_template.res`
+- Write an example of code here that will pass all test cases. This does not need to be the finest example of how to complete this exercise, but it must pass all the test cases - `exercises/practice/<exercise-slug>/.meta/<exercise-name>.res`
+- Update the example solution's interface file with the function signatures - `exercises/practice/<exercise-slug>/.meta/<exercise-name>.reso`
+- Create an exercise stub which returns `panic("'<function-name>' has not been implemented")` - `exercises/practice/<exercise-slug>/src/<exercise-name>.res`
+- Update the exercise stub's interface file with the exposed function signatures so that the student has a reference to what names and types are used - `exercises/practice/<exercise-slug>/src/<exercise-name>.resi`
 
 ## Testing
 
@@ -61,7 +63,7 @@ Tests are written using [rescript-test][ReScriptTest]. There is a test templatin
 - `exercises/practice/<exercise-slug>/.meta/tests.toml` - if any of these test cases are not relevant to the language, add `ignore = true` on a newline below the description
 - `exercises/practice/<exercise-slug>/.meta/testTemplate.js` - edit this file to allow the test generator to automatically create test files.
   - you must write your comparator functions - https://bloodyowl.github.io/rescript-test/assertions.
-  - common assertions with comparator functions are located at `test_generator/assertions.js`. Pass the required ones into the `assertionFunctions` array.
+  - common assertions with comparator functions are located at `test_generator/assertions.js`. Add the ones you'd like to use to the `assertionFunctions` array.
   - edit the `template` function so that it will generate the test cases. The `c` variable refers to a test case in `problem-specifications/exercises/<exercise-slug>/canonical-data.json`. Look at other exercise test templates for inspiration.
 
 Run all exercise tests:
@@ -113,7 +115,7 @@ Run the [`fmt` command][configlet-fmt-link] to verify if the configuration files
 ./bin/configlet fmt -e <exercise-slug>
 
 # auto format files
-./bin/configlet fmt -u
+./bin/configlet fmt -uy
 ```
 
 If you are auto formatting files, only commit the files relevant to your pull request.
