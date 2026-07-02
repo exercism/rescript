@@ -4,7 +4,6 @@ on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
     paths:
-      - ".github/workflows/check-problem-specs-is-current.yml"
       - "bin/check-problem-specs-is-current"
       - "problem-specifications"
       - "problem-specifications/**"
