@@ -3,6 +3,15 @@ name: Check Problem Specifications is Current
 on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
+    paths:
+      - ".github/workflows/check-problem-specs-is-current.yml"
+      - "bin/check-problem-specs-is-current"
+      - "problem-specifications"
+      - "problem-specifications/**"
+      - "test_generator/**"
+      - "test_templates/**"
+      - "exercises/practice/**/tests/**"
+      - "exercises/practice/**/.meta/tests.toml"
   workflow_dispatch:
 
 permissions:
