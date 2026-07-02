@@ -100,7 +100,7 @@ If you are using VS Code, install the official [ReScript VS Code extension][resc
 ./bin/fetch-configlet
 ```
 
-Run the [`lint` command][configlet-link-link] to verify if exercises have the required files and if config files are correct. Address any issues before pushing your changes:
+Run the [`lint` command][configlet-lint-link] to verify if exercises have the required files and if config files are correct. Address any issues before pushing your changes:
 
 ```shell
 ./bin/configlet lint
