@@ -48,7 +48,7 @@ let caseStringArrayToVariantArray = (json): array<string> => {
 }
 
 // Convert arrays of numeric strings from JSON to ReScript.
-let caseStringArrayToIntArray = (json): array<int> => {
+let caseStringArrayToIntArray = (json): array<string> => {
   json
   ->JSON.Decode.array
   ->Option.map(arr => {
