@@ -230,6 +230,14 @@
         "difficulty": 4
       },
       {
+        "slug": "binary-search-tree",
+        "name": "Binary Search Tree",
+        "uuid": "ce828ef4-9242-41b4-894a-92029dfdbd42",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "change",
         "name": "Change",
         "uuid": "12eb71ba-b6d0-4edf-af8f-8dbe195d1f27",

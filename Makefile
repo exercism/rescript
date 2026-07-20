@@ -69,11 +69,14 @@ copy-exercise:
         	cp exercises/practice/$(EXERCISE)/tests/*.res $(OUTDIR)/tests/; \
 	fi
 
-# copy build artifacts for testing
-copy-all-exercises:
-	@echo "Copying exercises for testing..."
+# Ensure the root build directories exist
+ensure-build-dirs-exist:
 	@mkdir -p $(OUTDIR)/src
 	@mkdir -p $(OUTDIR)/tests
+
+# copy build artifacts for testing
+copy-all-exercises: ensure-build-dirs-exist
+	@echo "Copying exercises for testing..."
 	@for exercise in $(EXERCISES); do EXERCISE=$$exercise $(MAKE) -s copy-exercise || exit 1; done
 
 # Remove the OUTDIR
@@ -87,18 +90,18 @@ format:
 	@find . -name "node_modules" -prune -o -name "*.res" -print -o -name "*.resi" -print | xargs npx rescript format
 
 # Generate tests for all exercises
-generate-tests:
+generate-tests: ensure-build-dirs-exist
 	@echo "Generating tests from test_templates directory..."
 	@for template in $(wildcard test_templates/*_template.res.js); do \
 		echo "-> Running template: $$template"; \
 		node $$template || exit 1; \
 	done
-	@echo "Formatting files"
-	npm run res:format-fix
+	@echo "Formatting tests"
+	@npx rescript format exercises/practice/*/tests/*_test.res
 	@echo "All tests generated and formatted successfully."
 
 # Generate test for exercise
-generate-test:
+generate-test: ensure-build-dirs-exist
 ifeq ($(EXERCISE),)
 	$(error EXERCISE variable is required. usage: make generate-test EXERCISE=hello-world)
 endif
@@ -114,7 +117,7 @@ endif
 	
 	@echo "-> Running template: test_templates/$(PASCAL_EXERCISE)_template.res.js"
 	@node test_templates/$(PASCAL_EXERCISE)_template.res.js || exit 1
-	npm run res:format-fix
+	npx rescript format exercises/practice/$(EXERCISE)/tests/$(PASCAL_EXERCISE)_test.res
 
 # Test a single exercise - e.g. make test-one EXERCISE=eliuds-eggs
 test-one:

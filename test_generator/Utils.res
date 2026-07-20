@@ -47,5 +47,24 @@ let caseStringArrayToVariantArray = (json): array<string> => {
   ->Option.getOr([]) // If decoding fails or is null, return []
 }
 
+// Convert arrays of numeric strings from JSON to ReScript.
+let caseStringArrayToIntArray = (json): array<string> => {
+  json
+  ->JSON.Decode.array
+  ->Option.map(arr => {
+    arr->Array.filterMap(item => {
+      item->JSON.Decode.string
+    })
+  })
+  ->Option.getOr([]) // If decoding fails or is null, return []
+}
+
 // Convert an array to a string representation eg. "[Item1, Item2, Item3]"
 let arrayToString = arr => `[` ++ arr->Array.join(", ") ++ `]`
+
+// Convert JSON arrays like "['1', '2']" to "[1, 2]"
+let jsonStringArrayToIntArrayString = json => {
+  json
+  ->caseStringArrayToIntArray
+  ->arrayToString
+}
