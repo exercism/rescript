@@ -96,8 +96,8 @@ generate-tests: ensure-build-dirs-exist
 		echo "-> Running template: $$template"; \
 		node $$template || exit 1; \
 	done
-	@echo "Formatting files"
-	npm run res:format-fix
+	@echo "Formatting tests"
+	@npx rescript format exercises/practice/*/tests/*_test.res
 	@echo "All tests generated and formatted successfully."
 
 # Generate test for exercise
@@ -117,7 +117,7 @@ endif
 	
 	@echo "-> Running template: test_templates/$(PASCAL_EXERCISE)_template.res.js"
 	@node test_templates/$(PASCAL_EXERCISE)_template.res.js || exit 1
-	npm run res:format-fix
+	npx rescript format exercises/practice/$(EXERCISE)/tests/$(PASCAL_EXERCISE)_test.res
 
 # Test a single exercise - e.g. make test-one EXERCISE=eliuds-eggs
 test-one:
