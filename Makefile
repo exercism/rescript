@@ -94,7 +94,7 @@ generate-tests:
 		node $$template || exit 1; \
 	done
 	@echo "Formatting tests"
-	@npx rescript format exercises/practice/*/tests/*_test.res
+	npm run res:format-fix
 	@echo "All tests generated and formatted successfully."
 
 # Generate test for exercise
@@ -114,7 +114,7 @@ endif
 	
 	@echo "-> Running template: test_templates/$(PASCAL_EXERCISE)_template.res.js"
 	@node test_templates/$(PASCAL_EXERCISE)_template.res.js || exit 1
-	npx rescript format exercises/practice/$(EXERCISE)/tests/$(PASCAL_EXERCISE)_test.res
+	npm run res:format-fix
 
 # Test a single exercise - e.g. make test-one EXERCISE=eliuds-eggs
 test-one:
