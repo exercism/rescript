@@ -5,8 +5,6 @@
 
 set -euo pipefail
 
-make ensure-build-dirs-exist
-
 npm run res:build
 make generate-tests
 
