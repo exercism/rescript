@@ -19,7 +19,8 @@
       "tests/Acronym_test.res"
     ],
     "example": [
-      ".meta/Acronym.res"
+      ".meta/Acronym.res",
+      ".meta/Acronym.resi"
     ],
     "editor": [
       "src/Acronym.resi"

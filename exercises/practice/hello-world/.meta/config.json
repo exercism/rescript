@@ -18,7 +18,8 @@
       "tests/HelloWorld_test.res"
     ],
     "example": [
-      ".meta/HelloWorld.res"
+      ".meta/HelloWorld.res",
+      ".meta/HelloWorld.resi"
     ],
     "editor": [
       "src/HelloWorld.resi"

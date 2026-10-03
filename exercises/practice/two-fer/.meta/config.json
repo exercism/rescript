@@ -12,7 +12,8 @@
       "tests/TwoFer_test.res"
     ],
     "example": [
-      ".meta/TwoFer.res"
+      ".meta/TwoFer.res",
+      ".meta/TwoFer.resi"
     ],
     "editor": [
       "src/TwoFer.resi"
