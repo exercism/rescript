@@ -24,7 +24,7 @@ npm install
 
 ## Run the Tests
 
-Compile and run the provided test suite using either `exercism test` or `npm install`.
+Compile and run the provided test suite using either `exercism test` or `npm run test`.
 
 ## Understanding Test Results
 
