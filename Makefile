@@ -49,7 +49,7 @@ add-test-template:
 
 # copy all relevant files for a single exercise - test template, config etc.
 copy-exercise-files:
-	@cp package.json exercises/practice/$(EXERCISE)/package.json
+	@cp templates/package.json exercises/practice/$(EXERCISE)/package.json
 	@cp package-lock.json exercises/practice/$(EXERCISE)/package-lock.json
 	@cp templates/rescript.json exercises/practice/$(EXERCISE)/rescript.json
 	@cp templates/.gitignore exercises/practice/$(EXERCISE)/.gitignore
