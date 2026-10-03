@@ -5,7 +5,8 @@
   ],
   "files": {
     "solution": [
-      "src/TwoFer.res"
+      "src/TwoFer.res",
+      "src/TwoFer.resi"
     ],
     "test": [
       "tests/TwoFer_test.res"

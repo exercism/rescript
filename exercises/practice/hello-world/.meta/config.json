@@ -11,7 +11,8 @@
   ],
   "files": {
     "solution": [
-      "src/HelloWorld.res"
+      "src/HelloWorld.res",
+      "src/HelloWorld.resi"
     ],
     "test": [
       "tests/HelloWorld_test.res"

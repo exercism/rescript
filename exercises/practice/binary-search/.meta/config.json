@@ -5,7 +5,8 @@
   ],
   "files": {
     "solution": [
-      "src/BinarySearch.res"
+      "src/BinarySearch.res",
+      "src/BinarySearch.resi"
     ],
     "test": [
       "tests/BinarySearch_test.res"

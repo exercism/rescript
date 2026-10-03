@@ -12,7 +12,8 @@
   ],
   "files": {
     "solution": [
-      "src/Acronym.res"
+      "src/Acronym.res",
+      "src/Acronym.resi"
     ],
     "test": [
       "tests/Acronym_test.res"
