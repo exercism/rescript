@@ -1,4 +1,4 @@
-type codons =
+type aminoAcids =
   | Methionine
   | Phenylalanine
   | Leucine
