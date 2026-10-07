@@ -1,4 +1,4 @@
-type codons =
+type aminoAcids =
   | Methionine
   | Phenylalanine
   | Leucine
@@ -8,4 +8,4 @@ type codons =
   | Tryptophan
   | STOP
 
-let proteins: string => option<array<codons>>
+let proteins: string => option<array<aminoAcids>>
