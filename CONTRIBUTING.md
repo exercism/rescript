@@ -23,17 +23,16 @@
     3. Generate the tests: `make generate-test EXERCISE=<exercise-slug>`
        - review the generated `exercises/practice/<exercise-slug>/tests/<PascalSlug>_test.res` file
 5. Create the stub source and interface files (refer to other exercises)
-    - `exercises/practice/<exercise-slug>/src/<PascalSlug>.res` -- with a binding for the functions being tested that panics
-    - `exercises/practice/<exercise-slug>/src/<PascalSlug>.resi` -- to define the type signature of the function
+    - `exercises/practice/<exercise-slug>/src/<PascalSlug>.res` -- for each function being tested, create a binding that panics
+    - `exercises/practice/<exercise-slug>/src/<PascalSlug>.resi` -- define the type signature for each function
 6. Write the example solution
     - copy the contents of the stub files into the `.meta/` files
     - populate the `.meta/<PascalsSlug>.res` with your example solution.
       It doesn't have to be optimal: it exists as a proof the exercise can be solved.
 7. Test with `make test-one EXERCISE=<exercise-slug>`
-    - note: if you're on a Mac, the Makefile uses GNU sed.
-      Install it with homebrew: `brew install gnu-sed`
-      and do `mkdir -p $HOME/bin && PATH="$HOME/bin:$PATH" && cd $HOME/bin && ln -s /path/to/gsed sed`
-    - When tests fail, go back to previous step.
+    - Caution: if you're on a Mac, the Makefile uses GNU sed features.
+      - install it with homebrew: `brew install gnu-sed`
+      - then put it in your path earlier than the system sed: `mkdir -p ~/bin && PATH="$HOME/bin:$PATH" && cd ~/bin && ln -s /path/to/gsed sed && cd -`
 
 ## **Do you want to report a bug?**
 
