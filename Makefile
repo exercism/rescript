@@ -5,7 +5,7 @@ EXERCISES = $(shell find ./exercises/practice -maxdepth 1 -mindepth 1 -type d | 
 OUTDIR ?= "tmp"
 
 # Define the files you want to ensure are synced across all exercises
-FILES_TO_CHECK = package.json rescript.json .gitignore LICENSE
+FILES_TO_CHECK = package.json package-lock.json rescript.json .gitignore LICENSE
 
 # Camel to Pascal case utility
 TO_PASCAL = $(shell echo "$(1)" | sed -E 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($$i,1,1)),$$i)}1' | sed 's/ //g')
