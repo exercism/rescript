@@ -12,10 +12,10 @@ if [[ -z "$latest_commit" ]]; then
   exit 1
 fi
 
-current_commit="$(git rev-parse HEAD:problem-specifications)"
+current_commit="$(git -C problem-specifications rev-parse HEAD)"
 
 if [[ "$current_commit" != "$latest_commit" ]]; then
-  echo "::error:: The problem-specifications submodule is out of date. Update it to ${latest_commit}."
+  echo "::error:: The problem-specifications submodule is out of date. Update it to ${latest_commit}: git submodule update --remote"
   exit 1
 fi
 
