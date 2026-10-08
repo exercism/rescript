@@ -13,4 +13,4 @@ jobs:
     name: Check
     uses: exercism/github-actions/.github/workflows/sorted.yml@main
     with:
-      ordering: ".bucket, .lowercase_name"
+      ordering: ".difficulty, .lowercase_name"
