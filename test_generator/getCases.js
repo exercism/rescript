@@ -1,9 +1,12 @@
 import { readFileSync } from 'node:fs';
+import { homedir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import process from 'node:process';
 import toml from 'toml';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const __cacheDir = process.env.XDG_CACHE_HOME || join(homedir(), '.cache');
 
 /**
  * Retrieves and filters test cases based on the Exercism TOML config.
@@ -11,7 +14,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
  */
 export default function getValidCases(slug) {
   const tomlPath = join(__dirname, '..', 'exercises', 'practice', slug, '.meta', 'tests.toml');
-  const jsonPath = join(__dirname, '..', 'problem-specifications', 'exercises', slug, 'canonical-data.json');
+  const jsonPath = join(__cacheDir, 'exercism', 'configlet', 'problem-specifications', 'exercises', slug, 'canonical-data.json');
 
   const testMeta = toml.parse(readFileSync(tomlPath, 'utf-8'));
   const canonicalData = JSON.parse(readFileSync(jsonPath, 'utf-8'));
