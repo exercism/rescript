@@ -11,9 +11,9 @@
 ### Adding a practice exercise
 
 1. Fork the repo: `gh repo fork exercism/rescript`
-2. Populate the problem-specifications submodule: `git submodule update --init --recursive`
-   - Periodically refresh it: `git submodule update --remote`
-3. Run the add script: `bin/add-practice-exercises -a <your-github-username> -d <difficulty> <exercise-slug>`
+2. Run the add script: `bin/add-practice-exercises -a <your-github-username> -d <difficulty> <exercise-slug>`
+3. That script calls `bin/configlet` which installs the [exercism/problem-specifications](https://github.com/exercism/problem-specifications) repository locally:
+    - the location is `$XDG_CACHE_HOME/exercism/configlet/problem-specifications`, and by default XDG_CACHE_HOME is `$HOME/.cache`
 4. Generate the tests:
     1. Create the template for the test generator: `make add-test-template EXERCISE=<exercise-slug>`
        - this creates file `test_templates/<PascalSlug>_template.res`
