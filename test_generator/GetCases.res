@@ -16,8 +16,15 @@ let getValidCases = (slug: string): array<case> => {
 
   let tomlPath = join([projectRoot, "exercises", "practice", slug, ".meta", "tests.toml"])
 
+  let cacheDir = switch getEnv("XDG_CACHE_HOME") {
+  | Some(dir) => dir
+  | None => join([homedir(), ".cache"])
+  }
+
   let jsonPath = join([
-    projectRoot,
+    cacheDir,
+    "exercism",
+    "configlet",
     "problem-specifications",
     "exercises",
     slug,

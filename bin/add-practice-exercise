@@ -86,7 +86,7 @@ cat << NEXT_STEPS
 
 Your next steps are:
 - Create the test suite in $(jq -r '.test' <<< "${files}")
-  - The tests should be based on the canonical data at 'https://github.com/exercism/problem-specifications/blob/main/exercises/${slug}/canonical-data.json'
+  - The tests should be based on the canonical data at '$HOME/.cache/exercism/configlet/problem-specifications/exercises/${slug}/canonical-data.json'
   - Any test cases you don't implement, mark them in 'exercises/practice/${slug}/.meta/tests.toml' with "include = false"
 - Create the example solution in $(jq -r '.example' <<< "${files}")
 - Verify the example solution passes the tests by running 'bin/verify-exercises ${slug}'
