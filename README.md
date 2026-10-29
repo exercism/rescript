@@ -9,19 +9,6 @@ Exercism exercises in ReScript.
 
 Track exercises target [ReScript] 12.2.0 using the [ReScript Test][ReScriptTest] testing framework on [Node.js] 22+. If you're contributing to the track, you will also need [make].
 
-### Setting up the development environment
-
-Run the following commands from inside the project root directory to install the required tools:
-
-```shell
-npm install
-git submodule update --init --recursive # add/update a local copy of the problem-specification submodule
-```
-
-To automate the creation of practice exercise tests, our track tooling consumes data from the the [problem specifications][exercism-problem-specifications-link] submodule. Because these specifications serve as the canonical source for all Exercism tracks, any upstream updates ensure our test cases remain consistent with the global exercise standard.
-
-If you have format on save enabled for JSON files, it is recommended to disable this feature. Alternatively save JSON files with `Ctrl+K s` to save without applying formatting rules.
-
 ## Running the development environment
 
 Open up two terminals. By running the commands below, files will compile on save and re-run the test suite.
@@ -52,7 +39,7 @@ Now complete the following steps:
 - Ensure that the new exercise data is correctly placed in order of difficulty and then alphabetically within that difficulty rating - `config.json`
 - Implement exercise test cases, detailed in the [testing](#testing) section below - `templates/Test_template.res`
 - Write an example of code here that will pass all test cases. This does not need to be the finest example of how to complete this exercise, but it must pass all the test cases - `exercises/practice/<exercise-slug>/.meta/<exercise-name>.res`
-- Update the example solution's interface file with the function signatures - `exercises/practice/<exercise-slug>/.meta/<exercise-name>.reso`
+- Update the example solution's interface file with the function signatures - `exercises/practice/<exercise-slug>/.meta/<exercise-name>.resi`
 - Create an exercise stub which returns `panic("'<function-name>' has not been implemented")` - `exercises/practice/<exercise-slug>/src/<exercise-name>.res`
 - Update the exercise stub's interface file with the exposed function signatures so that the student has a reference to what names and types are used - `exercises/practice/<exercise-slug>/src/<exercise-name>.resi`
 
@@ -64,7 +51,7 @@ Tests are written using [rescript-test][ReScriptTest]. There is a test templatin
 - `test_templates/<Exercise>_template.res` - edit this file to allow the test generator to automatically create test files. If this file does not exist, copy `templates/Test_template.res` and rename to match the aforementioned filename.
   - you must write your comparator functions - https://bloodyowl.github.io/rescript-test/assertions.
   - common assertions with comparator functions are located at `test_generator/Assertions.res`. Add the ones you'd like to use to the `generateTests` function's last argument, eg `TestGenerator.generateTests(slug, template, [DictEqual])`.
-  - edit the `template` function so that it will generate the test cases. The `case` parameter refers to a test case in `problem-specifications/exercises/<exercise-slug>/canonical-data.json`. Refer to other exercise test templates for inspiration.
+  - edit the `template` function so that it will generate the test cases. The `case` parameter refers to a test case in `$HOME/.cache/exercism/configlet/problem-specifications/exercises/<exercise-slug>/canonical-data.json`. Refer to other exercise test templates for inspiration.
 
 Run all exercise tests:
 

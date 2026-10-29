@@ -17,20 +17,17 @@ check-exercise-files:
 		for file in $(FILES_TO_CHECK); do \
 			target="exercises/practice/$$exercise/$$file"; \
 			\
-			# Map the source template path \
 			if [ -f "./templates/$$file" ]; then \
 				source="./templates/$$file"; \
 			else \
 				source="./$$file"; \
 			fi; \
 			\
-			# 1. Check if the file exists \
 			if [ ! -f "$$target" ]; then \
 				echo "ERROR: Missing file $$file in $$exercise. Run make sync-exercise-files and commit the changes."; \
 				exit 1; \
 			fi; \
 			\
-			# 2. Check if the content matches (ignoring name/version) \
 			if [ "$$file" != ".meta/testTemplate.js" ]; then \
 				diff -q -I '"name":' -I '"version":' "$$source" "$$target" > /dev/null || { \
 					echo "ERROR: $$target does not match template $$source."; \
