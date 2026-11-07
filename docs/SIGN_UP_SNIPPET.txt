@@ -1,0 +1,17 @@
+let mostCommonWord = text => {
+  let counts = Dict.make()
+  let best = ref("")
+  let bestCount = ref(0)
+  text
+  ->String.toLowerCase
+  ->String.split(" ")
+  ->Array.forEach(word => {
+    let count = counts->Dict.get(word)->Option.getOr(0) + 1
+    counts->Dict.set(word, count)
+    if count > bestCount.contents {
+      best := word
+      bestCount := count
+    }
+  })
+  `"${best.contents}" appears ${bestCount.contents->Int.toString} times`
+}
