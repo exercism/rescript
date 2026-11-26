@@ -29,6 +29,8 @@ test("multiple line question", () => {equal(~message="multiple line question", r
 
 test("shouting gibberish", () => {equal(~message="shouting gibberish", response("FCECDFCAAB"), "Whoa, chill out!")})
 
+test("shouting a statement containing a question mark", () => {equal(~message="shouting a statement containing a question mark", response("DO LIONS EAT PEOPLE? AHHHHH."), "Whoa, chill out!")})
+
 test("shouting numbers", () => {equal(~message="shouting numbers", response("1, 2, 3 GO!"), "Whoa, chill out!")})
 
 test("shouting with special characters", () => {equal(~message="shouting with special characters", response("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"), "Whoa, chill out!")})
